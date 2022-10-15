@@ -1,6 +1,16 @@
-<link data-minify="1" rel="stylesheet" id="oxygen-universal-styles-css" href="/wp-content/cache/min/1/wp-content/uploads/oxygen/css/universal.css?ver=1665849665" type="text/css" media="all">
+<link data-minify="1" rel="preload" href="/wp-content/cache/min/1/wp-content/uploads/oxygen/css/universal.css?ver=1665855679" data-rocket-async="style" as="style" onload="this.onload=null;this.rel='stylesheet'" onerror="this.removeAttribute('data-rocket-async')" type="text/css" media="all">
 <noscript><style id="rocket-lazyload-nojs-css">.rll-youtube-player, [data-lazy-src]{display:none !important;}</style></noscript>
-<!-- END OF WP_HEAD() -->
+<script type="rocketlazyloadscript">
+/*! loadCSS rel=preload polyfill. [c]2017 Filament Group, Inc. MIT License */
+(function(w){"use strict";if(!w.loadCSS){w.loadCSS=function(){}}
+var rp=loadCSS.relpreload={};rp.support=(function(){var ret;try{ret=w.document.createElement("link").relList.supports("preload")}catch(e){ret=!1}
+return function(){return ret}})();rp.bindMediaToggle=function(link){var finalMedia=link.media||"all";function enableStylesheet(){link.media=finalMedia}
+if(link.addEventListener){link.addEventListener("load",enableStylesheet)}else if(link.attachEvent){link.attachEvent("onload",enableStylesheet)}
+setTimeout(function(){link.rel="stylesheet";link.media="only x"});setTimeout(enableStylesheet,3000)};rp.poly=function(){if(rp.support()){return}
+var links=w.document.getElementsByTagName("link");for(var i=0;i<links.length;i++){var link=links[i];if(link.rel==="preload"&&link.getAttribute("as")==="style"&&!link.getAttribute("data-loadcss")){link.setAttribute("data-loadcss",!0);rp.bindMediaToggle(link)}}};if(!rp.support()){rp.poly();var run=w.setInterval(rp.poly,500);if(w.addEventListener){w.addEventListener("load",function(){rp.poly();w.clearInterval(run)})}else if(w.attachEvent){w.attachEvent("onload",function(){rp.poly();w.clearInterval(run)})}}
+if(typeof exports!=="undefined"){exports.loadCSS=loadCSS}
+else{w.loadCSS=loadCSS}}(typeof global!=="undefined"?global:this))
+</script><!-- END OF WP_HEAD() -->
 
 <body class="post-template-default single single-post postid-181 single-format-standard  wp-embed-responsive oxygen-body">
 
@@ -61,7 +71,7 @@
     #expfooter_link a:hover {
         color: #fff;
     }</style>
-<script data-minify="1" language="javascript" src="/wp-content/cache/min/1/exp-referral/wpcm-referral.js?ver=1665849665" defer></script>
+<script data-minify="1" language="javascript" src="/wp-content/cache/min/1/exp-referral/wpcm-referral.js?ver=1665855679"></script>
 <script type="rocketlazyloadscript" language="javascript">//Start Setup register element id
 //WARN !! ต้องกำหนดและใส่ / ปิดท้ายเสมอ
  var SetLoginDomainLink = "https://m.metabet888.com/register/";
@@ -106,7 +116,9 @@ var RocketPreloadLinksConfig = {"excludeUris":"\/(?:.+\/)?feed(?:\/(?:.+\/?)?)?$
 if(typeof mutation.addedNodes[i].getElementsByClassName!=='function'){continue}
 images=mutation.addedNodes[i].getElementsByTagName('img');is_image=mutation.addedNodes[i].tagName=="IMG";iframes=mutation.addedNodes[i].getElementsByTagName('iframe');is_iframe=mutation.addedNodes[i].tagName=="IFRAME";rocket_lazy=mutation.addedNodes[i].getElementsByClassName('rocket-lazyload');image_count+=images.length;iframe_count+=iframes.length;rocketlazy_count+=rocket_lazy.length;if(is_image){image_count+=1}
 if(is_iframe){iframe_count+=1}}});if(image_count>0||iframe_count>0||rocketlazy_count>0){lazyLoadInstance.update()}});var b=document.getElementsByTagName("body")[0];var config={childList:!0,subtree:!0};observer.observe(b,config)}},!1)</script><script data-no-minify="1" async src="/wp-content/plugins/wp-rocket/assets/js/lazyload/17.5/lazyload.min.js"></script><!-- /WP_FOOTER --> 
+<script>"use strict";function wprRemoveCPCSS(){var preload_stylesheets=document.querySelectorAll('link[data-rocket-async="style"][rel="preload"]');if(preload_stylesheets&&0<preload_stylesheets.length)for(var stylesheet_index=0;stylesheet_index<preload_stylesheets.length;stylesheet_index++){var media=preload_stylesheets[stylesheet_index].getAttribute("media")||"all";if(window.matchMedia(media).matches)return void setTimeout(wprRemoveCPCSS,200)}var elem=document.getElementById("rocket-critical-css");elem&&"remove"in elem&&elem.remove()}window.addEventListener?window.addEventListener("load",wprRemoveCPCSS):window.attachEvent&&window.attachEvent("onload",wprRemoveCPCSS);</script><noscript><link data-minify="1" rel="stylesheet" id="oxygen-universal-styles-css" href="/wp-content/cache/min/1/wp-content/uploads/oxygen/css/universal.css?ver=1665855679" type="text/css" media="all"></noscript>
 </body>
 
 
-<!-- This website is like a Rocket, isn't it? Performance optimized by WP Rocket. Learn more: https://wp-rocket.me - Debug: cached@1665852112 -->
+<!-- This website is like a Rocket, isn't it? Performance optimized by WP Rocket. Learn more: https://wp-rocket.me -->
+<!-- plugin=object-cache-pro client=phpredis metric#hits=8420 metric#misses=23 metric#hit-ratio=99.7 metric#bytes=1000031 metric#prefetches=0 metric#store-reads=200 metric#store-writes=1 metric#store-hits=214 metric#store-misses=11 metric#sql-queries=15 metric#ms-total=1775.18 metric#ms-cache=525.07 metric#ms-cache-median=0.88 metric#ms-cache-ratio=22.8 -->
