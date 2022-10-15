@@ -133,4 +133,4 @@
 	</channel>
 </rss>
 
-<!-- plugin=object-cache-pro client=phpredis metric#hits=2458 metric#misses=22 metric#hit-ratio=99.1 metric#bytes=8156675 metric#prefetches=71 metric#store-reads=32 metric#store-writes=1 metric#store-hits=105 metric#store-misses=10 metric#sql-queries=16 metric#ms-total=240.46 metric#ms-cache=15.70 metric#ms-cache-median=0.19 metric#ms-cache-ratio=6.1 -->
+<!-- plugin=object-cache-pro client=phpredis metric#hits=3586 metric#misses=23 metric#hit-ratio=99.4 metric#bytes=8058816 metric#prefetches=201 metric#store-reads=27 metric#store-writes=1 metric#store-hits=229 metric#store-misses=11 metric#sql-queries=16 metric#ms-total=1591.16 metric#ms-cache=136.26 metric#ms-cache-median=0.78 metric#ms-cache-ratio=7.9 -->
