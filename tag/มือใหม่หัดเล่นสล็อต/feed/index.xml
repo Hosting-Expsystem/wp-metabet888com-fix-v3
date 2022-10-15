@@ -111,4 +111,4 @@
 	</channel>
 </rss>
 
-<!-- plugin=object-cache-pro client=phpredis metric#hits=2458 metric#misses=22 metric#hit-ratio=99.1 metric#bytes=8125391 metric#prefetches=65 metric#store-reads=32 metric#store-writes=1 metric#store-hits=99 metric#store-misses=10 metric#sql-queries=16 metric#ms-total=240.95 metric#ms-cache=15.87 metric#ms-cache-median=0.22 metric#ms-cache-ratio=6.2 -->
+<!-- plugin=object-cache-pro client=phpredis metric#hits=3593 metric#misses=23 metric#hit-ratio=99.4 metric#bytes=8027591 metric#prefetches=196 metric#store-reads=27 metric#store-writes=1 metric#store-hits=224 metric#store-misses=11 metric#sql-queries=16 metric#ms-total=1403.54 metric#ms-cache=124.30 metric#ms-cache-median=2.18 metric#ms-cache-ratio=8.1 -->
