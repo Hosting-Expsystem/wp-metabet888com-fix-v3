@@ -158,4 +158,4 @@
 	</channel>
 </rss>
 
-<!-- plugin=object-cache-pro client=phpredis metric#hits=2648 metric#misses=23 metric#hit-ratio=99.1 metric#bytes=8195280 metric#prefetches=82 metric#store-reads=27 metric#store-writes=1 metric#store-hits=110 metric#store-misses=11 metric#sql-queries=16 metric#ms-total=705.92 metric#ms-cache=63.33 metric#ms-cache-median=0.25 metric#ms-cache-ratio=8.2 -->
+<!-- plugin=object-cache-pro client=phpredis metric#hits=3831 metric#misses=23 metric#hit-ratio=99.4 metric#bytes=8097817 metric#prefetches=211 metric#store-reads=27 metric#store-writes=1 metric#store-hits=239 metric#store-misses=11 metric#sql-queries=16 metric#ms-total=2336.31 metric#ms-cache=221.45 metric#ms-cache-median=0.26 metric#ms-cache-ratio=8.7 -->
