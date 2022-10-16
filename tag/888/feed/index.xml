@@ -68,5 +68,3 @@
 			</item>
 	</channel>
 </rss>
-
-<!-- plugin=object-cache-pro client=phpredis metric#hits=3354 metric#misses=23 metric#hit-ratio=99.3 metric#bytes=7997663 metric#prefetches=179 metric#store-reads=27 metric#store-writes=1 metric#store-hits=211 metric#store-misses=11 metric#sql-queries=15 metric#ms-total=1341.26 metric#ms-cache=130.77 metric#ms-cache-median=1.79 metric#ms-cache-ratio=8.9 sample#redis-hits=11025158 sample#redis-misses=871622 sample#redis-hit-ratio=92.7 sample#redis-ops-per-sec=408 sample#redis-evicted-keys=0 sample#redis-used-memory=10304792 sample#redis-used-memory-rss=16916480 sample#redis-memory-fragmentation-ratio=1.6 sample#redis-connected-clients=11 sample#redis-tracking-clients=0 sample#redis-rejected-connections=0 sample#redis-keys=4722 -->
