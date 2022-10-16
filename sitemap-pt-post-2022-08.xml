@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?><?xml-stylesheet type='text/xsl' href='/wp-content/plugins/google-sitemap-generator/sitemap.xsl'?><!-- sitemap-generator-url='https://auctollo.com/' sitemap-generator-version='4.1.5' -->
-<!-- generated-on='October 15, 2022 5:41 pm' -->
+<!-- generated-on='October 16, 2022 6:46 am' -->
 <urlset xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xsi:schemaLocation='http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd' xmlns='http://www.sitemaps.org/schemas/sitemap/0.9'>	<url>
 		<loc>/game-online/</loc>
 		<lastmod>2022-08-23T12:19:42+00:00</lastmod>
@@ -240,4 +240,4 @@
 		<changefreq>monthly</changefreq>
 		<priority>0.2</priority>
 	</url>
-</urlset><!-- Request ID: a98368cad26da6157c79cfcaa327cd72; Queries for sitemap: 2; Total queries: 9; Seconds: $end_time; Memory for sitemap: 0MB; Total memory: 4MB -->
+</urlset><!-- Request ID: 705991d6242e8992507e50459c5a7c1e; Queries for sitemap: 5; Total queries: 56; Seconds: $end_time; Memory for sitemap: 0MB; Total memory: 4MB -->
