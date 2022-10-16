@@ -100,5 +100,3 @@
 			</item>
 	</channel>
 </rss>
-
-<!-- plugin=object-cache-pro client=phpredis metric#hits=3360 metric#misses=23 metric#hit-ratio=99.3 metric#bytes=8005210 metric#prefetches=181 metric#store-reads=27 metric#store-writes=1 metric#store-hits=213 metric#store-misses=11 metric#sql-queries=15 metric#ms-total=1239.18 metric#ms-cache=137.06 metric#ms-cache-median=1.06 metric#ms-cache-ratio=10.0 sample#redis-hits=11034794 sample#redis-misses=871867 sample#redis-hit-ratio=92.7 sample#redis-ops-per-sec=430 sample#redis-evicted-keys=0 sample#redis-used-memory=10327712 sample#redis-used-memory-rss=16900096 sample#redis-memory-fragmentation-ratio=1.6 sample#redis-connected-clients=11 sample#redis-tracking-clients=0 sample#redis-rejected-connections=0 sample#redis-keys=4741 -->
