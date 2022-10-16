@@ -55,5 +55,3 @@ WWW.METABET888.COM</p>
 			</item>
 	</channel>
 </rss>
-
-<!-- plugin=object-cache-pro client=phpredis metric#hits=3284 metric#misses=23 metric#hit-ratio=99.3 metric#bytes=7960849 metric#prefetches=169 metric#store-reads=27 metric#store-writes=1 metric#store-hits=201 metric#store-misses=11 metric#sql-queries=16 metric#ms-total=1676.53 metric#ms-cache=144.43 metric#ms-cache-median=1.99 metric#ms-cache-ratio=7.9 -->
