@@ -51,5 +51,3 @@
 			</item>
 	</channel>
 </rss>
-
-<!-- plugin=object-cache-pro client=phpredis metric#hits=3285 metric#misses=25 metric#hit-ratio=99.2 metric#bytes=7962526 metric#prefetches=170 metric#store-reads=28 metric#store-writes=1 metric#store-hits=201 metric#store-misses=13 metric#sql-queries=16 metric#ms-total=1355.65 metric#ms-cache=110.44 metric#ms-cache-median=1.22 metric#ms-cache-ratio=7.5 -->
