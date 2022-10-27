@@ -18,7 +18,7 @@
 	hourly	</sy:updatePeriod>
 	<sy:updateFrequency>
 	1	</sy:updateFrequency>
-	<generator>https://wordpress.org/?v=6.0.2</generator>
+	<generator>https://wordpress.org/?v=6.0.3</generator>
 
 <image>
 	<url>/wp-content/uploads/2022/05/imgcropped-imgmetabet888-logo-b-32x32.webp</url>
@@ -45,5 +45,3 @@
 			</item>
 	</channel>
 </rss>
-
-<!-- plugin=object-cache-pro client=phpredis metric#hits=3304 metric#misses=24 metric#hit-ratio=99.3 metric#bytes=7955446 metric#prefetches=169 metric#store-reads=28 metric#store-writes=1 metric#store-hits=201 metric#store-misses=12 metric#sql-queries=16 metric#ms-total=2470.17 metric#ms-cache=229.78 metric#ms-cache-median=0.25 metric#ms-cache-ratio=8.5 -->
