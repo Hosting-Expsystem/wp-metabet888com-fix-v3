@@ -2,6 +2,8 @@
 <html lang="en-US">
 <head>
 <meta charset="UTF-8">
+<script>if(navigator.userAgent.match(/MSIE|Internet Explorer/i)||navigator.userAgent.match(/Trident\/7\..*?rv:11/i)){var href=document.location.href;if(!href.match(/[?&]nowprocket/)){if(href.indexOf("?")==-1){if(href.indexOf("#")==-1){document.location.href=href+"?nowprocket=1"}else{document.location.href=href.replace("#","?nowprocket=1#")}}else{if(href.indexOf("#")==-1){document.location.href=href+"&nowprocket=1"}else{document.location.href=href.replace("#","&nowprocket=1#")}}}}</script><script>class RocketLazyLoadScripts{constructor(){this.triggerEvents=["keydown","mousedown","mousemove","touchmove","touchstart","touchend","wheel"],this.userEventHandler=this._triggerListener.bind(this),this.touchStartHandler=this._onTouchStart.bind(this),this.touchMoveHandler=this._onTouchMove.bind(this),this.touchEndHandler=this._onTouchEnd.bind(this),this.clickHandler=this._onClick.bind(this),this.interceptedClicks=[],window.addEventListener("pageshow",(e=>{this.persisted=e.persisted})),window.addEventListener("DOMContentLoaded",(()=>{this._preconnect3rdParties()})),this.delayedScripts={normal:[],async:[],defer:[]},this.allJQueries=[]}_addUserInteractionListener(e){document.hidden?e._triggerListener():(this.triggerEvents.forEach((t=>window.addEventListener(t,e.userEventHandler,{passive:!0}))),window.addEventListener("touchstart",e.touchStartHandler,{passive:!0}),window.addEventListener("mousedown",e.touchStartHandler),document.addEventListener("visibilitychange",e.userEventHandler))}_removeUserInteractionListener(){this.triggerEvents.forEach((e=>window.removeEventListener(e,this.userEventHandler,{passive:!0}))),document.removeEventListener("visibilitychange",this.userEventHandler)}_onTouchStart(e){"HTML"!==e.target.tagName&&(window.addEventListener("touchend",this.touchEndHandler),window.addEventListener("mouseup",this.touchEndHandler),window.addEventListener("touchmove",this.touchMoveHandler,{passive:!0}),window.addEventListener("mousemove",this.touchMoveHandler),e.target.addEventListener("click",this.clickHandler),this._renameDOMAttribute(e.target,"onclick","rocket-onclick"))}_onTouchMove(e){window.removeEventListener("touchend",this.touchEndHandler),window.removeEventListener("mouseup",this.touchEndHandler),window.removeEventListener("touchmove",this.touchMoveHandler,{passive:!0}),window.removeEventListener("mousemove",this.touchMoveHandler),e.target.removeEventListener("click",this.clickHandler),this._renameDOMAttribute(e.target,"rocket-onclick","onclick")}_onTouchEnd(e){window.removeEventListener("touchend",this.touchEndHandler),window.removeEventListener("mouseup",this.touchEndHandler),window.removeEventListener("touchmove",this.touchMoveHandler,{passive:!0}),window.removeEventListener("mousemove",this.touchMoveHandler)}_onClick(e){e.target.removeEventListener("click",this.clickHandler),this._renameDOMAttribute(e.target,"rocket-onclick","onclick"),this.interceptedClicks.push(e),e.preventDefault(),e.stopPropagation(),e.stopImmediatePropagation()}_replayClicks(){window.removeEventListener("touchstart",this.touchStartHandler,{passive:!0}),window.removeEventListener("mousedown",this.touchStartHandler),this.interceptedClicks.forEach((e=>{e.target.dispatchEvent(new MouseEvent("click",{view:e.view,bubbles:!0,cancelable:!0}))}))}_renameDOMAttribute(e,t,n){e.hasAttribute&&e.hasAttribute(t)&&(event.target.setAttribute(n,event.target.getAttribute(t)),event.target.removeAttribute(t))}_triggerListener(){this._removeUserInteractionListener(this),"loading"===document.readyState?document.addEventListener("DOMContentLoaded",this._loadEverythingNow.bind(this)):this._loadEverythingNow()}_preconnect3rdParties(){let e=[];document.querySelectorAll("script[type=rocketlazyloadscript]").forEach((t=>{if(t.hasAttribute("src")){const n=new URL(t.src).origin;n!==location.origin&&e.push({src:n,crossOrigin:t.crossOrigin||"module"===t.getAttribute("data-rocket-type")})}})),e=[...new Map(e.map((e=>[JSON.stringify(e),e]))).values()],this._batchInjectResourceHints(e,"preconnect")}async _loadEverythingNow(){this.lastBreath=Date.now(),this._delayEventListeners(),this._delayJQueryReady(this),this._handleDocumentWrite(),this._registerAllDelayedScripts(),this._preloadAllScripts(),await this._loadScriptsFromList(this.delayedScripts.normal),await this._loadScriptsFromList(this.delayedScripts.defer),await this._loadScriptsFromList(this.delayedScripts.async);try{await this._triggerDOMContentLoaded(),await this._triggerWindowLoad()}catch(e){}window.dispatchEvent(new Event("rocket-allScriptsLoaded")),this._replayClicks()}_registerAllDelayedScripts(){document.querySelectorAll("script[type=rocketlazyloadscript]").forEach((e=>{e.hasAttribute("src")?e.hasAttribute("async")&&!1!==e.async?this.delayedScripts.async.push(e):e.hasAttribute("defer")&&!1!==e.defer||"module"===e.getAttribute("data-rocket-type")?this.delayedScripts.defer.push(e):this.delayedScripts.normal.push(e):this.delayedScripts.normal.push(e)}))}async _transformScript(e){return await this._littleBreath(),new Promise((t=>{const n=document.createElement("script");[...e.attributes].forEach((e=>{let t=e.nodeName;"type"!==t&&("data-rocket-type"===t&&(t="type"),n.setAttribute(t,e.nodeValue))})),e.hasAttribute("src")?(n.addEventListener("load",t),n.addEventListener("error",t)):(n.text=e.text,t());try{e.parentNode.replaceChild(n,e)}catch(e){t()}}))}async _loadScriptsFromList(e){const t=e.shift();return t?(await this._transformScript(t),this._loadScriptsFromList(e)):Promise.resolve()}_preloadAllScripts(){this._batchInjectResourceHints([...this.delayedScripts.normal,...this.delayedScripts.defer,...this.delayedScripts.async],"preload")}_batchInjectResourceHints(e,t){var n=document.createDocumentFragment();e.forEach((e=>{if(e.src){const i=document.createElement("link");i.href=e.src,i.rel=t,"preconnect"!==t&&(i.as="script"),e.getAttribute&&"module"===e.getAttribute("data-rocket-type")&&(i.crossOrigin=!0),e.crossOrigin&&(i.crossOrigin=e.crossOrigin),n.appendChild(i)}})),document.head.appendChild(n)}_delayEventListeners(){let e={};function t(t,n){!function(t){function n(n){return e[t].eventsToRewrite.indexOf(n)>=0?"rocket-"+n:n}e[t]||(e[t]={originalFunctions:{add:t.addEventListener,remove:t.removeEventListener},eventsToRewrite:[]},t.addEventListener=function(){arguments[0]=n(arguments[0]),e[t].originalFunctions.add.apply(t,arguments)},t.removeEventListener=function(){arguments[0]=n(arguments[0]),e[t].originalFunctions.remove.apply(t,arguments)})}(t),e[t].eventsToRewrite.push(n)}function n(e,t){let n=e[t];Object.defineProperty(e,t,{get:()=>n||function(){},set(i){e["rocket"+t]=n=i}})}t(document,"DOMContentLoaded"),t(window,"DOMContentLoaded"),t(window,"load"),t(window,"pageshow"),t(document,"readystatechange"),n(document,"onreadystatechange"),n(window,"onload"),n(window,"onpageshow")}_delayJQueryReady(e){let t=window.jQuery;Object.defineProperty(window,"jQuery",{get:()=>t,set(n){if(n&&n.fn&&!e.allJQueries.includes(n)){n.fn.ready=n.fn.init.prototype.ready=function(t){e.domReadyFired?t.bind(document)(n):document.addEventListener("rocket-DOMContentLoaded",(()=>t.bind(document)(n)))};const t=n.fn.on;n.fn.on=n.fn.init.prototype.on=function(){if(this[0]===window){function e(e){return e.split(" ").map((e=>"load"===e||0===e.indexOf("load.")?"rocket-jquery-load":e)).join(" ")}"string"==typeof arguments[0]||arguments[0]instanceof String?arguments[0]=e(arguments[0]):"object"==typeof arguments[0]&&Object.keys(arguments[0]).forEach((t=>{delete Object.assign(arguments[0],{[e(t)]:arguments[0][t]})[t]}))}return t.apply(this,arguments),this},e.allJQueries.push(n)}t=n}})}async _triggerDOMContentLoaded(){this.domReadyFired=!0,await this._littleBreath(),document.dispatchEvent(new Event("rocket-DOMContentLoaded")),await this._littleBreath(),window.dispatchEvent(new Event("rocket-DOMContentLoaded")),await this._littleBreath(),document.dispatchEvent(new Event("rocket-readystatechange")),await this._littleBreath(),document.rocketonreadystatechange&&document.rocketonreadystatechange()}async _triggerWindowLoad(){await this._littleBreath(),window.dispatchEvent(new Event("rocket-load")),await this._littleBreath(),window.rocketonload&&window.rocketonload(),await this._littleBreath(),this.allJQueries.forEach((e=>e(window).trigger("rocket-jquery-load"))),await this._littleBreath();const e=new Event("rocket-pageshow");e.persisted=this.persisted,window.dispatchEvent(e),await this._littleBreath(),window.rocketonpageshow&&window.rocketonpageshow({persisted:this.persisted})}_handleDocumentWrite(){const e=new Map;document.write=document.writeln=function(t){const n=document.currentScript,i=document.createRange(),r=n.parentElement;let o=e.get(n);void 0===o&&(o=n.nextSibling,e.set(n,o));const s=document.createDocumentFragment();i.setStart(s,0),s.appendChild(i.createContextualFragment(t)),r.insertBefore(s,o)}}async _littleBreath(){Date.now()-this.lastBreath>45&&(await this._requestAnimFrame(),this.lastBreath=Date.now())}async _requestAnimFrame(){return document.hidden?new Promise((e=>setTimeout(e))):new Promise((e=>requestAnimationFrame(e)))}static run(){const e=new RocketLazyLoadScripts;e._addUserInteractionListener(e)}}RocketLazyLoadScripts.run();</script>
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <!-- WP_HEAD() START -->
 <title>พีจีสล็อต  - METABET888 เว็บไซต์ให้บริการ สล็อตออนไลน์ pgslot อันดับ 1 ในเอเชีย</title>
@@ -21,20 +23,20 @@
 <meta property="og:image:alt" content="pgslot-gaming เครดิตฟรี">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="พีจีสล็อต  - METABET888 เว็บไซต์ให้บริการ สล็อตออนไลน์ pgslot อันดับ 1 ในเอเชีย">
-<link rel="dns-prefetch" href="//fonts.googleapis.com">
+
 <link rel="alternate" type="application/rss+xml" title="METABET888 เว็บไซต์ให้บริการ สล็อตออนไลน์ pgslot อันดับ 1 ในเอเชีย &raquo; พีจีสล็อต Tag Feed" href="/tag/%e0%b8%9e%e0%b8%b5%e0%b8%88%e0%b8%b5%e0%b8%aa%e0%b8%a5%e0%b9%87%e0%b8%ad%e0%b8%95/feed/">
-<link rel="stylesheet" id="wp-block-library-css" href="/wp-includes/css/dist/block-library/style.min.css?ver=6.0.2" type="text/css" media="all">
+<link rel="stylesheet" id="wp-block-library-css" href="/wp-includes/css/dist/block-library/style.min.css?ver=6.0.3" type="text/css" media="all">
 <style id="wpseopress-local-business-style-inline-css" type="text/css">span.wp-block-wpseopress-local-business-field{margin-right:8px}</style>
 <style id="global-styles-inline-css" type="text/css">body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgba(6,147,227,1) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgba(252,185,0,1) 0%,rgba(255,105,0,1) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgba(255,105,0,1) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--duotone--dark-grayscale: url('#wp-duotone-dark-grayscale');--wp--preset--duotone--grayscale: url('#wp-duotone-grayscale');--wp--preset--duotone--purple-yellow: url('#wp-duotone-purple-yellow');--wp--preset--duotone--blue-red: url('#wp-duotone-blue-red');--wp--preset--duotone--midnight: url('#wp-duotone-midnight');--wp--preset--duotone--magenta-yellow: url('#wp-duotone-magenta-yellow');--wp--preset--duotone--purple-green: url('#wp-duotone-purple-green');--wp--preset--duotone--blue-orange: url('#wp-duotone-blue-orange');--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}</style>
-<link data-minify="1" rel="stylesheet" id="oxygen-css" href="/wp-content/cache/min/1/wp-content/plugins/oxygen/component-framework/oxygen.css?ver=1665902471" type="text/css" media="all">
-<link data-minify="1" rel="stylesheet" id="uaf_client_css-css" href="/wp-content/cache/min/1/wp-content/uploads/useanyfont/uaf.css?ver=1665902471" type="text/css" media="all">
-<script type="text/javascript" src="/wp-includes/js/jquery/jquery.min.js?ver=3.6.0" id="jquery-core-js"></script>
+<link data-minify="1" rel="stylesheet" id="oxygen-css" href="/wp-content/cache/min/1/wp-content/plugins/oxygen/component-framework/oxygen.css?ver=1666844201" type="text/css" media="all">
+<link data-minify="1" rel="stylesheet" id="uaf_client_css-css" href="/wp-content/cache/min/1/wp-content/uploads/useanyfont/uaf.css?ver=1666844201" type="text/css" media="all">
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" src="/wp-includes/js/jquery/jquery.min.js?ver=3.6.0" id="jquery-core-js" defer></script>
 <link rel="https://api.w.org/" href="/wp-json/">
 <link rel="alternate" type="application/json" href="/wp-json/wp/v2/tags/100">
 <link rel="EditURI" type="application/rsd+xml" title="RSD" href="/xmlrpc.php?rsd">
 <link rel="wlwmanifest" type="application/wlwmanifest+xml" href="/wp-includes/wlwmanifest.xml"> 
-<meta name="generator" content="WordPress 6.0.2">
-		<meta name="ssp-url">
+<meta name="generator" content="WordPress 6.0.3">
+<link rel="canonical" href="สล็อตเว็บตรง PGSLOT ฝาก-ถอน true wallet ไม่มี ธนาคาร ไม่มี ขั้น ต่ำ2022/">		<meta name="ssp-url">
 		<meta name="ssp-origin-url" content="aHR0cHM6Ly9tZXRhYmV0ODg4LndlYnBzLmRldg==">
 
 					<meta name="ssp-config-url" content="/wp-content/uploads/simply-static/configs/">
@@ -44,21 +46,19 @@
 <link rel="apple-touch-icon" href="/wp-content/uploads/2022/05/imgcropped-imgmetabet888-logo-b-180x180.webp">
 <meta name="msapplication-TileImage" content="/wp-content/uploads/2022/05/imgcropped-imgmetabet888-logo-b-270x270.webp">
 
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-225370458-26"></script>
-<script>window.dataLayer = window.dataLayer || [];
+<script type="rocketlazyloadscript" async src="https://www.googletagmanager.com/gtag/js?id=UA-225370458-26"></script>
+<script type="rocketlazyloadscript">window.dataLayer = window.dataLayer || [];
 function gtag(){dataLayer.push(arguments);}gtag('js', new Date());
 gtag('config', 'UA-225370458-26' , {'allow_display_features': false,});
 gtag('config', 'G-7JZBHR4LJE' , {'allow_display_features': false,});</script>
 
 <!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+<script type="rocketlazyloadscript">(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
 j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
 })(window,document,'script','dataLayer','GTM-TFD8NKB');</script>
-<!-- End Google Tag Manager --><link data-minify="1" rel="stylesheet" id="oxygen-cache-24-css" href="/wp-content/cache/min/1/wp-content/uploads/oxygen/css/24.css?ver=1665902471" type="text/css" media="all">
-<link data-minify="1" rel="stylesheet" id="oxygen-cache-29-css" href="/wp-content/cache/min/1/wp-content/uploads/oxygen/css/29.css?ver=1665902473" type="text/css" media="all">
-<link data-minify="1" rel="stylesheet" id="oxygen-universal-styles-css" href="/wp-content/cache/min/1/wp-content/uploads/oxygen/css/universal.css?ver=1665902471" type="text/css" media="all">
+<!-- End Google Tag Manager --><link rel="stylesheet" id="oxygen-styles-css" href="/tag/%E0%B8%9E%E0%B8%B5%E0%B8%88%E0%B8%B5%E0%B8%AA%E0%B8%A5%E0%B9%87%E0%B8%AD%E0%B8%95/?xlink=css&#038;ver=6.0.3" type="text/css" media="all">
 <noscript><style id="rocket-lazyload-nojs-css">.rll-youtube-player, [data-lazy-src]{display:none !important;}</style></noscript>
 <!-- END OF WP_HEAD() -->
 </head>
@@ -341,7 +341,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <div id="sitebar-items">
         <div style="text-align: center;">
 			<a href="/">
-            <img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2085%20100'%3E%3C/svg%3E" width="85%" height="100%" data-lazy-src="https://metabet888.webps.dev/wp-content/uploads/2022/05/imglogoo.webp"><noscript><img src="/wp-content/uploads/2022/05/imglogoo.webp" width="85%" height="100%"></noscript>
+            <img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2085%20100'%3E%3C/svg%3E" width="85%" height="100%" data-lazy-src="/wp-content/uploads/2022/05/imglogoo.webp"><noscript><img src="/wp-content/uploads/2022/05/imglogoo.webp" width="85%" height="100%"></noscript>
 		    </a>
         </div>
         <div style="height: 10px; width: 85%;"></div>
@@ -368,7 +368,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     </div>
 </div>
 
-<script>const sidebarBox = document.querySelector('#menu_sidebar'),
+<script type="rocketlazyloadscript">const sidebarBox = document.querySelector('#menu_sidebar'),
         sidebarBtn = document.querySelector('#btn'),
         pageWrapper = document.querySelector('#page-wrapper')
 
@@ -393,12 +393,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 </div></div>
 <div id="div_block-75-24" class="ct-div-block">
 <div id="re-nav" class="ct-div-block pointer hvr-shrink"><div id="div_block-85-24" class="ct-div-block glass">
-<img width="147" height="51" id="image-86-24" alt="REGISTER-nav" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20147%2051'%3E%3C/svg%3E" class="ct-image liftup" data-lazy-src="https://metabet888.webps.dev/wp-content/uploads/2022/05/imgregister-nav.webp"><noscript><img width="147" height="51" id="image-86-24" alt="REGISTER-nav" src="/wp-content/uploads/2022/05/imgregister-nav.webp" class="ct-image liftup"></noscript>
+<img width="147" height="51" id="image-86-24" alt="REGISTER-nav" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20147%2051'%3E%3C/svg%3E" class="ct-image liftup" data-lazy-src="/wp-content/uploads/2022/05/imgregister-nav.webp"><noscript><img width="147" height="51" id="image-86-24" alt="REGISTER-nav" src="/wp-content/uploads/2022/05/imgregister-nav.webp" class="ct-image liftup"></noscript>
 </div></div>
 <div id="log-nav" class="ct-div-block liftup pointer">
-<img width="148" height="51" id="image-88-24" alt="LOGIN-nav" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20148%2051'%3E%3C/svg%3E" class="ct-image hvr-shrink" data-lazy-src="https://metabet888.webps.dev/wp-content/uploads/2022/05/imglogin-nav.webp"><noscript><img width="148" height="51" id="image-88-24" alt="LOGIN-nav" src="/wp-content/uploads/2022/05/imglogin-nav.webp" class="ct-image hvr-shrink"></noscript>
+<img width="148" height="51" id="image-88-24" alt="LOGIN-nav" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20148%2051'%3E%3C/svg%3E" class="ct-image hvr-shrink" data-lazy-src="/wp-content/uploads/2022/05/imglogin-nav.webp"><noscript><img width="148" height="51" id="image-88-24" alt="LOGIN-nav" src="/wp-content/uploads/2022/05/imglogin-nav.webp" class="ct-image hvr-shrink"></noscript>
 </div>
-<a id="div_block-90-24" class="ct-link liftup pointer blink" href="/lineadd" target="_blank"><img width="147" height="51" id="image-91-24" alt="contact-nav-pc" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20147%2051'%3E%3C/svg%3E" class="ct-image hvr-shrink" data-lazy-src="https://metabet888.webps.dev/wp-content/uploads/2022/05/imgcontact-nav-pc.webp"><noscript><img width="147" height="51" id="image-91-24" alt="contact-nav-pc" src="/wp-content/uploads/2022/05/imgcontact-nav-pc.webp" class="ct-image hvr-shrink"></noscript>
+<a id="div_block-90-24" class="ct-link liftup pointer blink" href="/lineadd" target="_blank"><img width="147" height="51" id="image-91-24" alt="contact-nav-pc" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20147%2051'%3E%3C/svg%3E" class="ct-image hvr-shrink" data-lazy-src="/wp-content/uploads/2022/05/imgcontact-nav-pc.webp"><noscript><img width="147" height="51" id="image-91-24" alt="contact-nav-pc" src="/wp-content/uploads/2022/05/imgcontact-nav-pc.webp" class="ct-image hvr-shrink"></noscript>
 <img width="1" height="100" id="image-256-24" alt="" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201%20100'%3E%3C/svg%3E" class="ct-image" data-lazy-src="https://metabet888.webps.dev/wp-content/uploads/2022/06/imgddd1.png"><noscript><img width="1" height="100" id="image-256-24" alt="" src="/wp-content/uploads/2022/06/imgddd1.png" class="ct-image"></noscript></a>
 </div>
 </div></div>
@@ -407,16 +407,16 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         <div id="_superbox-14-24" class="oxy-superbox">
           <div class="oxy-superbox-wrap">
             <div id="up" class="ct-div-block oxy-superbox-primary">
-<link data-minify="1" rel="stylesheet" id="oxygen-unslider-css" href="/wp-content/cache/min/1/wp-content/plugins/oxygen/component-framework/vendor/unslider/unslider.css?ver=1665902471" type="text/css" media="all">
-<div id="slider-19-24" class="ct-slider ct_unique_slider_427"><div class="oxygen-unslider-container"><ul><li><div id="slide-20-24" class="ct-slide"><picture id="div_block-40-24" class="ct-div-block"><source id="div_block-48-24" class="ct-div-block" media="(min-width:479px)" data-lazy-srcset="https://metabet888.webps.dev/wp-content/uploads/2022/05/imgbg-head-pc-e1652542433253.webp"><img id="image-61-24" alt="imgs-dfsdf-5554-optimized" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" class="ct-image" data-lazy-src="https://metabet888.webps.dev/wp-content/uploads/2022/09/imgimgs-dfsdf-5554-optimized.webp"><noscript><img id="image-61-24" alt="imgs-dfsdf-5554-optimized" src="/wp-content/uploads/2022/09/imgimgs-dfsdf-5554-optimized.webp" class="ct-image"></noscript></picture></div></li></ul></div></div>
-<script class="ct-slider-script">jQuery(document).ready(function($){$('#slider-19-24.ct_unique_slider_427 .oxygen-unslider-container:not(.unslider-horizontal,.unslider-fade)').unslider({autoplay: false, delay: 10000, animation: 'horizontal', speed : 750, arrows: false, nav: false, infinite: true})});</script>
+<link data-minify="1" rel="stylesheet" id="oxygen-unslider-css" href="/wp-content/cache/min/1/wp-content/plugins/oxygen/component-framework/vendor/unslider/unslider.css?ver=1666844201" type="text/css" media="all">
+<div id="slider-19-24" class="ct-slider ct_unique_slider_9007"><div class="oxygen-unslider-container"><ul><li><div id="slide-20-24" class="ct-slide"><picture id="div_block-40-24" class="ct-div-block"><source id="div_block-48-24" class="ct-div-block" media="(min-width:479px)" data-lazy-srcset="/wp-content/uploads/2022/05/imgbg-head-pc-e1652542433253.webp"><img id="image-61-24" alt="imgs-dfsdf-5554-optimized" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" class="ct-image" data-lazy-src="/wp-content/uploads/2022/09/imgimgs-dfsdf-5554-optimized.webp"><noscript><img id="image-61-24" alt="imgs-dfsdf-5554-optimized" src="/wp-content/uploads/2022/09/imgimgs-dfsdf-5554-optimized.webp" class="ct-image"></noscript></picture></div></li></ul></div></div>
+<script type="rocketlazyloadscript" class="ct-slider-script">window.addEventListener('DOMContentLoaded', function() {jQuery(document).ready(function($){$('#slider-19-24.ct_unique_slider_9007 .oxygen-unslider-container:not(.unslider-horizontal,.unslider-fade)').unslider({autoplay: false, delay: 10000, animation: 'horizontal', speed : 750, arrows: false, nav: false, infinite: true})});});</script>
 </div>
 <div id="div_block-16-24" class="ct-div-block oxy-superbox-secondary"><div id="div_block-65-24" class="ct-div-block">
 <div id="log-pc" class="ct-div-block liftup pointer">
-<img width="355" height="77" id="image-68-24" alt="log-pc-bt" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20355%2077'%3E%3C/svg%3E" class="ct-image hvr-shrink" data-lazy-src="https://metabet888.webps.dev/wp-content/uploads/2022/05/imglog-pc-bt.webp"><noscript><img width="355" height="77" id="image-68-24" alt="log-pc-bt" src="/wp-content/uploads/2022/05/imglog-pc-bt.webp" class="ct-image hvr-shrink"></noscript>
+<img width="355" height="77" id="image-68-24" alt="log-pc-bt" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20355%2077'%3E%3C/svg%3E" class="ct-image hvr-shrink" data-lazy-src="/wp-content/uploads/2022/05/imglog-pc-bt.webp"><noscript><img width="355" height="77" id="image-68-24" alt="log-pc-bt" src="/wp-content/uploads/2022/05/imglog-pc-bt.webp" class="ct-image hvr-shrink"></noscript>
 </div>
 <div id="re-pc" class="ct-div-block pointer hvr-shrink"><div id="div_block-71-24" class="ct-div-block glass anizoom">
-<img width="355" height="77" id="image-70-24" alt="re-bt-pc" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20355%2077'%3E%3C/svg%3E" class="ct-image liftup" data-lazy-src="https://metabet888.webps.dev/wp-content/uploads/2022/05/imgre-bt-pc.webp"><noscript><img width="355" height="77" id="image-70-24" alt="re-bt-pc" src="/wp-content/uploads/2022/05/imgre-bt-pc.webp" class="ct-image liftup"></noscript>
+<img width="355" height="77" id="image-70-24" alt="re-bt-pc" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20355%2077'%3E%3C/svg%3E" class="ct-image liftup" data-lazy-src="/wp-content/uploads/2022/05/imgre-bt-pc.webp"><noscript><img width="355" height="77" id="image-70-24" alt="re-bt-pc" src="/wp-content/uploads/2022/05/imgre-bt-pc.webp" class="ct-image liftup"></noscript>
 </div></div>
 </div></div>          </div>
         </div>
@@ -427,22 +427,22 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 </div></div></div>
 <div id="div_block-139-24" class="ct-div-block"><div id="div_block-141-24" class="ct-div-block"><div id="div_block-143-24" class="ct-div-block">
 <a id="div_block-144-24" class="ct-link h-grow liftup" href="/"><div id="div_block-147-24" class="ct-div-block">
-<img width="78" height="80" id="image-149-24" alt="h-" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2078%2080'%3E%3C/svg%3E" class="ct-image" data-lazy-src="https://metabet888.webps.dev/wp-content/uploads/2022/05/imgh-.webp"><noscript><img width="78" height="80" id="image-149-24" alt="h-" src="/wp-content/uploads/2022/05/imgh-.webp" class="ct-image"></noscript>
+<img width="78" height="80" id="image-149-24" alt="h-" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2078%2080'%3E%3C/svg%3E" class="ct-image" data-lazy-src="/wp-content/uploads/2022/05/imgh-.webp"><noscript><img width="78" height="80" id="image-149-24" alt="h-" src="/wp-content/uploads/2022/05/imgh-.webp" class="ct-image"></noscript>
 </div>
 <div id="div_block-148-24" class="ct-div-block"><div id="text_block-223-24" class="ct-text-block hvr-underline-from-center">หน้าหลัก</div></div></a><a id="link-172-24" class="ct-link h-grow liftup" href="/game"><div id="div_block-173-24" class="ct-div-block ">
-<img width="78" height="80" id="image-174-24" alt="g-" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2078%2080'%3E%3C/svg%3E" class="ct-image" data-lazy-src="https://metabet888.webps.dev/wp-content/uploads/2022/05/imgg-.webp"><noscript><img width="78" height="80" id="image-174-24" alt="g-" src="/wp-content/uploads/2022/05/imgg-.webp" class="ct-image"></noscript>
+<img width="78" height="80" id="image-174-24" alt="g-" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2078%2080'%3E%3C/svg%3E" class="ct-image" data-lazy-src="/wp-content/uploads/2022/05/imgg-.webp"><noscript><img width="78" height="80" id="image-174-24" alt="g-" src="/wp-content/uploads/2022/05/imgg-.webp" class="ct-image"></noscript>
 </div>
 <div id="div_block-175-24" class="ct-div-block"><div id="text_block-224-24" class="ct-text-block hvr-underline-from-center">เกม</div></div></a><a id="link-167-24" class="ct-link h-grow liftup" href="/demogame"><div id="div_block-168-24" class="ct-div-block ">
-<img width="78" height="80" id="image-169-24" alt="d-" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2078%2080'%3E%3C/svg%3E" class="ct-image" data-lazy-src="https://metabet888.webps.dev/wp-content/uploads/2022/05/imgd-.webp"><noscript><img width="78" height="80" id="image-169-24" alt="d-" src="/wp-content/uploads/2022/05/imgd-.webp" class="ct-image"></noscript>
+<img width="78" height="80" id="image-169-24" alt="d-" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2078%2080'%3E%3C/svg%3E" class="ct-image" data-lazy-src="/wp-content/uploads/2022/05/imgd-.webp"><noscript><img width="78" height="80" id="image-169-24" alt="d-" src="/wp-content/uploads/2022/05/imgd-.webp" class="ct-image"></noscript>
 </div>
 <div id="div_block-170-24" class="ct-div-block"><div id="text_block-226-24" class="ct-text-block hvr-underline-from-center">ทดลองเล่น</div></div></a><a id="link-162-24" class="ct-link h-grow liftup" href="/promotion"><div id="div_block-163-24" class="ct-div-block ">
-<img width="78" height="80" id="image-164-24" alt="p-" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2078%2080'%3E%3C/svg%3E" class="ct-image" data-lazy-src="https://metabet888.webps.dev/wp-content/uploads/2022/05/imgp-.webp"><noscript><img width="78" height="80" id="image-164-24" alt="p-" src="/wp-content/uploads/2022/05/imgp-.webp" class="ct-image"></noscript>
+<img width="78" height="80" id="image-164-24" alt="p-" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2078%2080'%3E%3C/svg%3E" class="ct-image" data-lazy-src="/wp-content/uploads/2022/05/imgp-.webp"><noscript><img width="78" height="80" id="image-164-24" alt="p-" src="/wp-content/uploads/2022/05/imgp-.webp" class="ct-image"></noscript>
 </div>
 <div id="div_block-165-24" class="ct-div-block"><div id="text_block-228-24" class="ct-text-block hvr-underline-from-center">โปรโมชั่น</div></div></a><a id="link-157-24" class="ct-link h-grow liftup" href="/article"><div id="div_block-158-24" class="ct-div-block ">
-<img width="78" height="80" id="image-159-24" alt="a-" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2078%2080'%3E%3C/svg%3E" class="ct-image" data-lazy-src="https://metabet888.webps.dev/wp-content/uploads/2022/05/imga-.webp"><noscript><img width="78" height="80" id="image-159-24" alt="a-" src="/wp-content/uploads/2022/05/imga-.webp" class="ct-image"></noscript>
+<img width="78" height="80" id="image-159-24" alt="a-" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2078%2080'%3E%3C/svg%3E" class="ct-image" data-lazy-src="/wp-content/uploads/2022/05/imga-.webp"><noscript><img width="78" height="80" id="image-159-24" alt="a-" src="/wp-content/uploads/2022/05/imga-.webp" class="ct-image"></noscript>
 </div>
 <div id="div_block-160-24" class="ct-div-block"><div id="text_block-230-24" class="ct-text-block hvr-underline-from-center">บทความ</div></div></a><a id="link-152-24" class="ct-link h-grow liftup" href="/lineadd" target="_blank"><div id="div_block-153-24" class="ct-div-block ">
-<img width="78" height="80" id="image-154-24" alt="c-" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2078%2080'%3E%3C/svg%3E" class="ct-image" data-lazy-src="https://metabet888.webps.dev/wp-content/uploads/2022/05/imgc-.webp"><noscript><img width="78" height="80" id="image-154-24" alt="c-" src="/wp-content/uploads/2022/05/imgc-.webp" class="ct-image"></noscript>
+<img width="78" height="80" id="image-154-24" alt="c-" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2078%2080'%3E%3C/svg%3E" class="ct-image" data-lazy-src="/wp-content/uploads/2022/05/imgc-.webp"><noscript><img width="78" height="80" id="image-154-24" alt="c-" src="/wp-content/uploads/2022/05/imgc-.webp" class="ct-image"></noscript>
 </div>
 <div id="div_block-155-24" class="ct-div-block"><div id="text_block-232-24" class="ct-text-block hvr-underline-from-center">ติดต่อเรา</div></div></a>
 </div></div></div>
@@ -701,13 +701,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <a class="page-numbers" href="/tag/%E0%B8%9E%E0%B8%B5%E0%B8%88%E0%B8%B5%E0%B8%AA%E0%B8%A5%E0%B9%87%E0%B8%AD%E0%B8%95/page/2/">2</a>
 <a class="page-numbers" href="/tag/%E0%B8%9E%E0%B8%B5%E0%B8%88%E0%B8%B5%E0%B8%AA%E0%B8%A5%E0%B9%87%E0%B8%AD%E0%B8%95/page/3/">3</a>
 <span class="page-numbers dots">&hellip;</span>
-<a class="page-numbers" href="/tag/%E0%B8%9E%E0%B8%B5%E0%B8%88%E0%B8%B5%E0%B8%AA%E0%B8%A5%E0%B9%87%E0%B8%AD%E0%B8%95/page/14/">14</a>
+<a class="page-numbers" href="/tag/%E0%B8%9E%E0%B8%B5%E0%B8%88%E0%B8%B5%E0%B8%AA%E0%B8%A5%E0%B9%87%E0%B8%AD%E0%B8%95/page/16/">16</a>
 <a class="next page-numbers" href="/tag/%E0%B8%9E%E0%B8%B5%E0%B8%88%E0%B8%B5%E0%B8%AA%E0%B8%A5%E0%B9%87%E0%B8%AD%E0%B8%95/page/2/">Next &raquo;</a>            </div>
                             </div>
                 </div>
 <div id="div_block-155-29" class="ct-div-block"></div>
 </div>
-<script type="text/javascript">var firstTab = document.querySelector('#_tabs_contents-142-29 > .oxy-tabs-contents-content-hidden:first-child'); if(firstTab && firstTab.classList){firstTab.classList.remove("oxy-tabs-contents-content-hidden")};</script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript">var firstTab = document.querySelector('#_tabs_contents-142-29 > .oxy-tabs-contents-content-hidden:first-child'); if(firstTab && firstTab.classList){firstTab.classList.remove("oxy-tabs-contents-content-hidden")};</script>
 </div>
 <div id="div_block-156-29" class="ct-div-block">
 <div id="div_block-157-29" class="ct-div-block"><div id="text_block-158-29" class="ct-text-block"><span id="span-159-29" class="ct-span oxy-stock-content-styles"><p><span style="font-weight: 400;">ผู้เล่นทุกท่านสามารถดาวน์โหลด PGSLOT </span><span style="color: #ff00ff;"><b>สล็อตเว็บตรง PGSLOT ไม่ผ่านเอเย่นต์ </b></span><span style="font-weight: 400;">มาไว้บนโทรศัพท์มือถือได้ทั้งระบบปฏิบัติการ Android และ ios โดยผู้เล่นทุกท่านสามารถสมัครเข้าร่วมเล่น PGSLOT ได้ง่าย ๆ ในไม่กี่ขั้นตอน เพียงดาวน์โหลดแอพ PGSLOT และสมัครสมาชิก เพียงเท่านี้ผู้เล่นทุกท่านก็จะได้พบกับเกมสล็อตออนไลน์มากมาย และสามารถเลือกเล่นได้มากกว่า 200 เกม อย่างไม่รู้เบื่อ ซึ่งการดาวน์โหลดเกม PGSLOT สามารถทำให้ผู้เล่นทุกท่านได้รับความสะดวกสบายในการเข้าร่วมเดิมพันได้ง่ายกว่าที่เคย เพราะไม่ว่าผู้เล่นจะอยู่ที่ใด ก็สามารถล็อคอิน เข้าสู่ระบบได้ง่าย ๆ ตลอด 24 ชั่วโมง </span></p>
@@ -759,6 +759,76 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                     <div class="oxy-posts">
                  <div class="oxy-post">  
   <div class="oxy-post-padding">
+    <a class="oxy-post-image" href="/%e0%b9%80%e0%b8%a7%e0%b9%87%e0%b8%9a%e0%b8%95%e0%b8%a3%e0%b8%87pg/">
+      <div data-bg="https://metabet888.webps.dev/wp-content/uploads/2022/10/imgdirect-web-pg.png" class="oxy-post-image-fixed-ratio rocket-lazyload">
+      </div>
+	</a>
+    <div class="oxy-post-wrap">
+      <div class="oxy-post-content-and-link-wrap">
+        <div class="oxy-post-content">
+			<a href="/%e0%b9%80%e0%b8%a7%e0%b9%87%e0%b8%9a%e0%b8%95%e0%b8%a3%e0%b8%87pg/" class="oxy-read-more">อ่านเพิ่มเติม</a>
+        </div>
+      </div>    
+    </div>   
+  </div>
+</div> <div class="oxy-post">  
+  <div class="oxy-post-padding">
+    <a class="oxy-post-image" href="/%e0%b9%82%e0%b8%9b%e0%b8%a3100%e0%b8%96%e0%b8%ad%e0%b8%99%e0%b9%84%e0%b8%a1%e0%b9%88%e0%b8%ad%e0%b8%b1%e0%b9%89%e0%b8%99pg/">
+      <div data-bg="https://metabet888.webps.dev/wp-content/uploads/2022/10/imgpro-100-unlimited-withdrawal-pg.png" class="oxy-post-image-fixed-ratio rocket-lazyload">
+      </div>
+	</a>
+    <div class="oxy-post-wrap">
+      <div class="oxy-post-content-and-link-wrap">
+        <div class="oxy-post-content">
+			<a href="/%e0%b9%82%e0%b8%9b%e0%b8%a3100%e0%b8%96%e0%b8%ad%e0%b8%99%e0%b9%84%e0%b8%a1%e0%b9%88%e0%b8%ad%e0%b8%b1%e0%b9%89%e0%b8%99pg/" class="oxy-read-more">อ่านเพิ่มเติม</a>
+        </div>
+      </div>    
+    </div>   
+  </div>
+</div> <div class="oxy-post">  
+  <div class="oxy-post-padding">
+    <a class="oxy-post-image" href="/%e0%b8%aa%e0%b8%a1%e0%b8%b1%e0%b8%84%e0%b8%a3pg/">
+      <div data-bg="https://metabet888.webps.dev/wp-content/uploads/2022/10/imgapply-for-pg.png" class="oxy-post-image-fixed-ratio rocket-lazyload">
+      </div>
+	</a>
+    <div class="oxy-post-wrap">
+      <div class="oxy-post-content-and-link-wrap">
+        <div class="oxy-post-content">
+			<a href="/%e0%b8%aa%e0%b8%a1%e0%b8%b1%e0%b8%84%e0%b8%a3pg/" class="oxy-read-more">อ่านเพิ่มเติม</a>
+        </div>
+      </div>    
+    </div>   
+  </div>
+</div> <div class="oxy-post">  
+  <div class="oxy-post-padding">
+    <a class="oxy-post-image" href="/%e0%b8%aa%e0%b8%a1%e0%b8%b1%e0%b8%84%e0%b8%a3%e0%b9%80%e0%b8%81%e0%b8%a1%e0%b8%aa%e0%b8%a5%e0%b9%87%e0%b8%ad%e0%b8%95/">
+      <div data-bg="https://metabet888.webps.dev/wp-content/uploads/2022/10/imgapply-for-slot-games.png" class="oxy-post-image-fixed-ratio rocket-lazyload">
+      </div>
+	</a>
+    <div class="oxy-post-wrap">
+      <div class="oxy-post-content-and-link-wrap">
+        <div class="oxy-post-content">
+			<a href="/%e0%b8%aa%e0%b8%a1%e0%b8%b1%e0%b8%84%e0%b8%a3%e0%b9%80%e0%b8%81%e0%b8%a1%e0%b8%aa%e0%b8%a5%e0%b9%87%e0%b8%ad%e0%b8%95/" class="oxy-read-more">อ่านเพิ่มเติม</a>
+        </div>
+      </div>    
+    </div>   
+  </div>
+</div> <div class="oxy-post">  
+  <div class="oxy-post-padding">
+    <a class="oxy-post-image" href="/%e0%b8%a7%e0%b8%b4%e0%b8%98%e0%b8%b5%e0%b9%80%e0%b8%a5%e0%b9%88%e0%b8%99%e0%b8%aa%e0%b8%a5%e0%b9%87%e0%b8%ad%e0%b8%95%e0%b9%83%e0%b8%ab%e0%b9%89%e0%b9%84%e0%b8%94%e0%b9%89%e0%b9%80%e0%b8%87%e0%b8%b4/">
+      <div data-bg="https://metabet888.webps.dev/wp-content/uploads/2022/10/imghow-to-play-slots-for-money.png" class="oxy-post-image-fixed-ratio rocket-lazyload">
+      </div>
+	</a>
+    <div class="oxy-post-wrap">
+      <div class="oxy-post-content-and-link-wrap">
+        <div class="oxy-post-content">
+			<a href="/%e0%b8%a7%e0%b8%b4%e0%b8%98%e0%b8%b5%e0%b9%80%e0%b8%a5%e0%b9%88%e0%b8%99%e0%b8%aa%e0%b8%a5%e0%b9%87%e0%b8%ad%e0%b8%95%e0%b9%83%e0%b8%ab%e0%b9%89%e0%b9%84%e0%b8%94%e0%b9%89%e0%b9%80%e0%b8%87%e0%b8%b4/" class="oxy-read-more">อ่านเพิ่มเติม</a>
+        </div>
+      </div>    
+    </div>   
+  </div>
+</div> <div class="oxy-post">  
+  <div class="oxy-post-padding">
     <a class="oxy-post-image" href="/pg-to-is-an-easy-to-play-online-slot-game/">
       <div data-bg="https://metabet888.webps.dev/wp-content/uploads/2022/09/imgplay-slot-online.png" class="oxy-post-image-fixed-ratio rocket-lazyload">
       </div>
@@ -773,126 +843,56 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   </div>
 </div> <div class="oxy-post">  
   <div class="oxy-post-padding">
-    <a class="oxy-post-image" href="/pg-games-online-slots-easy-to-play-get-real-money/">
-      <div data-bg="https://metabet888.webps.dev/wp-content/uploads/2022/09/imgslot-online-play-easy.png" class="oxy-post-image-fixed-ratio rocket-lazyload">
+    <a class="oxy-post-image" href="/%e0%b9%80%e0%b8%81%e0%b8%a1%e0%b9%80%e0%b8%84%e0%b8%a3%e0%b8%94%e0%b8%b4%e0%b8%95%e0%b8%9f%e0%b8%a3%e0%b8%b5/">
+      <div data-bg="https://metabet888.webps.dev/wp-content/uploads/2022/10/imgfree-credit-game.png" class="oxy-post-image-fixed-ratio rocket-lazyload">
       </div>
 	</a>
     <div class="oxy-post-wrap">
       <div class="oxy-post-content-and-link-wrap">
         <div class="oxy-post-content">
-			<a href="/pg-games-online-slots-easy-to-play-get-real-money/" class="oxy-read-more">อ่านเพิ่มเติม</a>
+			<a href="/%e0%b9%80%e0%b8%81%e0%b8%a1%e0%b9%80%e0%b8%84%e0%b8%a3%e0%b8%94%e0%b8%b4%e0%b8%95%e0%b8%9f%e0%b8%a3%e0%b8%b5/" class="oxy-read-more">อ่านเพิ่มเติม</a>
         </div>
       </div>    
     </div>   
   </div>
 </div> <div class="oxy-post">  
   <div class="oxy-post-padding">
-    <a class="oxy-post-image" href="/apply-for-pg-slot-straight-website/">
-      <div data-bg="https://metabet888.webps.dev/wp-content/uploads/2022/09/imgregister-pgslot.png" class="oxy-post-image-fixed-ratio rocket-lazyload">
+    <a class="oxy-post-image" href="/%e0%b9%80%e0%b8%81%e0%b8%a1%e0%b8%aa%e0%b8%a5%e0%b9%87%e0%b8%ad%e0%b8%95%e0%b8%ad%e0%b8%ad%e0%b8%99%e0%b9%84%e0%b8%a5%e0%b8%99%e0%b9%8c%e0%b9%84%e0%b8%94%e0%b9%89%e0%b9%80%e0%b8%87%e0%b8%b4%e0%b8%99/">
+      <div data-bg="https://metabet888.webps.dev/wp-content/uploads/2022/10/imgslot-games-online-win-real-money.png" class="oxy-post-image-fixed-ratio rocket-lazyload">
       </div>
 	</a>
     <div class="oxy-post-wrap">
       <div class="oxy-post-content-and-link-wrap">
         <div class="oxy-post-content">
-			<a href="/apply-for-pg-slot-straight-website/" class="oxy-read-more">อ่านเพิ่มเติม</a>
+			<a href="/%e0%b9%80%e0%b8%81%e0%b8%a1%e0%b8%aa%e0%b8%a5%e0%b9%87%e0%b8%ad%e0%b8%95%e0%b8%ad%e0%b8%ad%e0%b8%99%e0%b9%84%e0%b8%a5%e0%b8%99%e0%b9%8c%e0%b9%84%e0%b8%94%e0%b9%89%e0%b9%80%e0%b8%87%e0%b8%b4%e0%b8%99/" class="oxy-read-more">อ่านเพิ่มเติม</a>
         </div>
       </div>    
     </div>   
   </div>
 </div> <div class="oxy-post">  
   <div class="oxy-post-padding">
-    <a class="oxy-post-image" href="/pgslot-online-slots-that-thai-people-are-most-popular-to-play/">
-      <div data-bg="https://metabet888.webps.dev/wp-content/uploads/2022/09/img5-game-pgslot.png" class="oxy-post-image-fixed-ratio rocket-lazyload">
+    <a class="oxy-post-image" href="/%e0%b8%aa%e0%b8%a5%e0%b9%87%e0%b8%ad%e0%b8%95%e0%b8%9d%e0%b8%b2%e0%b8%81%e0%b9%84%e0%b8%a1%e0%b9%88%e0%b8%a1%e0%b8%b5%e0%b8%82%e0%b8%b1%e0%b9%89%e0%b8%99%e0%b8%95%e0%b9%88%e0%b8%b3-pgslot/">
+      <div data-bg="https://metabet888.webps.dev/wp-content/uploads/2022/10/imgno-minimum-deposit-pgslot.png" class="oxy-post-image-fixed-ratio rocket-lazyload">
       </div>
 	</a>
     <div class="oxy-post-wrap">
       <div class="oxy-post-content-and-link-wrap">
         <div class="oxy-post-content">
-			<a href="/pgslot-online-slots-that-thai-people-are-most-popular-to-play/" class="oxy-read-more">อ่านเพิ่มเติม</a>
+			<a href="/%e0%b8%aa%e0%b8%a5%e0%b9%87%e0%b8%ad%e0%b8%95%e0%b8%9d%e0%b8%b2%e0%b8%81%e0%b9%84%e0%b8%a1%e0%b9%88%e0%b8%a1%e0%b8%b5%e0%b8%82%e0%b8%b1%e0%b9%89%e0%b8%99%e0%b8%95%e0%b9%88%e0%b8%b3-pgslot/" class="oxy-read-more">อ่านเพิ่มเติม</a>
         </div>
       </div>    
     </div>   
   </div>
 </div> <div class="oxy-post">  
   <div class="oxy-post-padding">
-    <a class="oxy-post-image" href="/pg-promotion-100/">
-      <div data-bg="https://metabet888.webps.dev/wp-content/uploads/2022/09/imgpromotion-pgslot-game.png" class="oxy-post-image-fixed-ratio rocket-lazyload">
+    <a class="oxy-post-image" href="/%e0%b8%97%e0%b8%b2%e0%b8%87%e0%b9%80%e0%b8%82%e0%b9%89%e0%b8%b2%e0%b9%80%e0%b8%a5%e0%b9%88%e0%b8%99pg/">
+      <div data-bg="https://metabet888.webps.dev/wp-content/uploads/2022/10/imgentrance-to-play-pg.png" class="oxy-post-image-fixed-ratio rocket-lazyload">
       </div>
 	</a>
     <div class="oxy-post-wrap">
       <div class="oxy-post-content-and-link-wrap">
         <div class="oxy-post-content">
-			<a href="/pg-promotion-100/" class="oxy-read-more">อ่านเพิ่มเติม</a>
-        </div>
-      </div>    
-    </div>   
-  </div>
-</div> <div class="oxy-post">  
-  <div class="oxy-post-padding">
-    <a class="oxy-post-image" href="/techniques-for-playing-pgslot/">
-      <div data-bg="https://metabet888.webps.dev/wp-content/uploads/2022/09/imgteach-pgslot.png" class="oxy-post-image-fixed-ratio rocket-lazyload">
-      </div>
-	</a>
-    <div class="oxy-post-wrap">
-      <div class="oxy-post-content-and-link-wrap">
-        <div class="oxy-post-content">
-			<a href="/techniques-for-playing-pgslot/" class="oxy-read-more">อ่านเพิ่มเติม</a>
-        </div>
-      </div>    
-    </div>   
-  </div>
-</div> <div class="oxy-post">  
-  <div class="oxy-post-padding">
-    <a class="oxy-post-image" href="/teach-how-to-play-pgslot-online-slots/">
-      <div data-bg="https://metabet888.webps.dev/wp-content/uploads/2022/09/imgteach-slot-game.png" class="oxy-post-image-fixed-ratio rocket-lazyload">
-      </div>
-	</a>
-    <div class="oxy-post-wrap">
-      <div class="oxy-post-content-and-link-wrap">
-        <div class="oxy-post-content">
-			<a href="/teach-how-to-play-pgslot-online-slots/" class="oxy-read-more">อ่านเพิ่มเติม</a>
-        </div>
-      </div>    
-    </div>   
-  </div>
-</div> <div class="oxy-post">  
-  <div class="oxy-post-padding">
-    <a class="oxy-post-image" href="/pg-slot-entrance-to-teach-you-to-play/">
-      <div data-bg="https://metabet888.webps.dev/wp-content/uploads/2022/09/imgpg-slot-app.png" class="oxy-post-image-fixed-ratio rocket-lazyload">
-      </div>
-	</a>
-    <div class="oxy-post-wrap">
-      <div class="oxy-post-content-and-link-wrap">
-        <div class="oxy-post-content">
-			<a href="/pg-slot-entrance-to-teach-you-to-play/" class="oxy-read-more">อ่านเพิ่มเติม</a>
-        </div>
-      </div>    
-    </div>   
-  </div>
-</div> <div class="oxy-post">  
-  <div class="oxy-post-padding">
-    <a class="oxy-post-image" href="/tv-online/">
-      <div data-bg="https://metabet888.webps.dev/wp-content/uploads/2022/08/imgtv-online.png" class="oxy-post-image-fixed-ratio rocket-lazyload">
-      </div>
-	</a>
-    <div class="oxy-post-wrap">
-      <div class="oxy-post-content-and-link-wrap">
-        <div class="oxy-post-content">
-			<a href="/tv-online/" class="oxy-read-more">อ่านเพิ่มเติม</a>
-        </div>
-      </div>    
-    </div>   
-  </div>
-</div> <div class="oxy-post">  
-  <div class="oxy-post-padding">
-    <a class="oxy-post-image" href="/watch-movies-online/">
-      <div data-bg="https://metabet888.webps.dev/wp-content/uploads/2022/08/imgapp-movie-online.png" class="oxy-post-image-fixed-ratio rocket-lazyload">
-      </div>
-	</a>
-    <div class="oxy-post-wrap">
-      <div class="oxy-post-content-and-link-wrap">
-        <div class="oxy-post-content">
-			<a href="/watch-movies-online/" class="oxy-read-more">อ่านเพิ่มเติม</a>
+			<a href="/%e0%b8%97%e0%b8%b2%e0%b8%87%e0%b9%80%e0%b8%82%e0%b9%89%e0%b8%b2%e0%b9%80%e0%b8%a5%e0%b9%88%e0%b8%99pg/" class="oxy-read-more">อ่านเพิ่มเติม</a>
         </div>
       </div>    
     </div>   
@@ -903,7 +903,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <a class="page-numbers" href="/tag/%E0%B8%9E%E0%B8%B5%E0%B8%88%E0%B8%B5%E0%B8%AA%E0%B8%A5%E0%B9%87%E0%B8%AD%E0%B8%95/page/2/">2</a>
 <a class="page-numbers" href="/tag/%E0%B8%9E%E0%B8%B5%E0%B8%88%E0%B8%B5%E0%B8%AA%E0%B8%A5%E0%B9%87%E0%B8%AD%E0%B8%95/page/3/">3</a>
 <span class="page-numbers dots">&hellip;</span>
-<a class="page-numbers" href="/tag/%E0%B8%9E%E0%B8%B5%E0%B8%88%E0%B8%B5%E0%B8%AA%E0%B8%A5%E0%B9%87%E0%B8%AD%E0%B8%95/page/14/">14</a>
+<a class="page-numbers" href="/tag/%E0%B8%9E%E0%B8%B5%E0%B8%88%E0%B8%B5%E0%B8%AA%E0%B8%A5%E0%B9%87%E0%B8%AD%E0%B8%95/page/16/">16</a>
 <a class="next page-numbers" href="/tag/%E0%B8%9E%E0%B8%B5%E0%B8%88%E0%B8%B5%E0%B8%AA%E0%B8%A5%E0%B9%87%E0%B8%AD%E0%B8%95/page/2/">Next &raquo;</a>            </div>
                             </div>
                 <div id="div_block-175-29" class="ct-div-block"><div id="div_block-176-29" class="ct-div-block"><a id="link_text-177-29" class="ct-link-text" href="/">&lt;&lt; ย้อนกลับ</a></div></div>
@@ -913,7 +913,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 </div>
 </div></div></div>
 <div id="div_block-193-24" class="ct-div-block"><div id="div_block-195-24" class="ct-div-block">
-<a id="div_block-197-24" class="ct-link liftup" href="/"><img width="732" height="457" id="image-199-24" alt="pgslot-gaming เครดิตฟรี" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20732%20457'%3E%3C/svg%3E" class="ct-image hvr-bob" data-lazy-src="https://metabet888.webps.dev/wp-content/uploads/2022/05/imglogoo.webp"><noscript><img width="732" height="457" id="image-199-24" alt="pgslot-gaming เครดิตฟรี" src="/wp-content/uploads/2022/05/imglogoo.webp" class="ct-image hvr-bob"></noscript></a><div id="div_block-200-24" class="ct-div-block">
+<a id="div_block-197-24" class="ct-link liftup" href="/"><img width="732" height="457" id="image-199-24" alt="pgslot-gaming เครดิตฟรี" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20732%20457'%3E%3C/svg%3E" class="ct-image hvr-bob" data-lazy-src="/wp-content/uploads/2022/05/imglogoo.webp"><noscript><img width="732" height="457" id="image-199-24" alt="pgslot-gaming เครดิตฟรี" src="/wp-content/uploads/2022/05/imglogoo.webp" class="ct-image hvr-bob"></noscript></a><div id="div_block-200-24" class="ct-div-block">
 <div id="div_block-201-24" class="ct-div-block">
 <div id="_toggle-202-24" class="oxy-toggle toggle-0124 toggle-0124-expanded box" data-oxy-toggle-initial-state="open" data-oxy-toggle-active-class="toggle-0124-expanded">
 			<div class="oxy-expand-collapse-icon" href="#"></div>
@@ -1033,6 +1033,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <a class="aaa" href="/tag/%e0%b8%aa%e0%b8%a5%e0%b9%87%e0%b8%ad%e0%b8%95pg%e0%b9%80%e0%b8%a7%e0%b9%87%e0%b8%9a%e0%b8%95%e0%b8%a3%e0%b8%87/" title="สล็อตpgเว็บตรง">สล็อตpgเว็บตรง  </a>
     <a class="aaa" href="/tag/%e0%b8%aa%e0%b8%a5%e0%b9%87%e0%b8%ad%e0%b8%95pg%e0%b9%80%e0%b8%a7%e0%b9%87%e0%b8%9a%e0%b8%95%e0%b8%a3%e0%b8%87%e0%b9%81%e0%b8%95%e0%b8%81%e0%b8%87%e0%b9%88%e0%b8%b2%e0%b8%a2/" title="สล็อตpgเว็บตรงแตกง่าย">สล็อตpgเว็บตรงแตกง่าย  </a>
     <a class="aaa" href="/tag/%e0%b8%aa%e0%b8%a5%e0%b9%87%e0%b8%ad%e0%b8%95pg%e0%b9%80%e0%b8%a7%e0%b9%87%e0%b8%9a%e0%b8%95%e0%b8%a3%e0%b8%87%e0%b9%84%e0%b8%a1%e0%b9%88%e0%b8%9c%e0%b9%88%e0%b8%b2%e0%b8%99%e0%b9%80%e0%b8%ad%e0%b9%80/" title="สล็อตpgเว็บตรงไม่ผ่านเอเย่นต์ไม่มีขั้นต่ำ">สล็อตpgเว็บตรงไม่ผ่านเอเย่นต์ไม่มีขั้นต่ำ  </a>
+    <a class="aaa" href="/tag/%e0%b8%aa%e0%b8%a5%e0%b9%87%e0%b8%ad%e0%b8%95%e0%b8%84%e0%b9%88%e0%b8%b2%e0%b8%a2pg/" title="สล็อตค่ายpg">สล็อตค่ายpg  </a>
     <a class="aaa" href="/tag/%e0%b8%aa%e0%b8%a5%e0%b9%87%e0%b8%ad%e0%b8%95%e0%b8%8b%e0%b8%b7%e0%b9%89%e0%b8%ad%e0%b8%9f%e0%b8%a3%e0%b8%b5%e0%b8%aa%e0%b8%9b%e0%b8%b4%e0%b8%99%e0%b9%84%e0%b8%94%e0%b9%89/" title="สล็อตซื้อฟรีสปินได้">สล็อตซื้อฟรีสปินได้  </a>
     <a class="aaa" href="/tag/%e0%b8%aa%e0%b8%a5%e0%b9%87%e0%b8%ad%e0%b8%95%e0%b8%97%e0%b8%94%e0%b8%a5%e0%b8%ad%e0%b8%87%e0%b9%80%e0%b8%a5%e0%b9%88%e0%b8%99%e0%b8%9f%e0%b8%a3%e0%b8%b5%e0%b8%97%e0%b8%b8%e0%b8%81%e0%b8%84%e0%b9%88/" title="สล็อตทดลองเล่นฟรีทุกค่าย">สล็อตทดลองเล่นฟรีทุกค่าย  </a>
     <a class="aaa" href="/tag/%e0%b8%aa%e0%b8%a5%e0%b9%87%e0%b8%ad%e0%b8%95%e0%b8%9e%e0%b8%b5%e0%b8%88%e0%b8%b5%e0%b9%80%e0%b8%a7%e0%b9%87%e0%b8%9a%e0%b8%95%e0%b8%a3%e0%b8%87/" title="สล็อตพีจีเว็บตรง">สล็อตพีจีเว็บตรง  </a>
@@ -1050,6 +1051,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <a class="aaa" href="/tag/%e0%b8%aa%e0%b8%a5%e0%b9%87%e0%b8%ad%e0%b8%95%e0%b9%80%e0%b8%a7%e0%b9%87%e0%b8%9a%e0%b8%95%e0%b8%a3%e0%b8%87%e0%b8%a1%e0%b8%b2%e0%b9%81%e0%b8%a3%e0%b8%87/" title="สล็อตเว็บตรงมาแรง">สล็อตเว็บตรงมาแรง  </a>
     <a class="aaa" href="/tag/%e0%b8%aa%e0%b8%a5%e0%b9%87%e0%b8%ad%e0%b8%95%e0%b9%80%e0%b8%a7%e0%b9%87%e0%b8%9a%e0%b8%95%e0%b8%a3%e0%b8%87%e0%b9%81%e0%b8%95%e0%b8%81%e0%b8%87%e0%b9%88%e0%b8%b2%e0%b8%a2/" title="สล็อตเว็บตรงแตกง่าย">สล็อตเว็บตรงแตกง่าย  </a>
     <a class="aaa" href="/tag/%e0%b8%aa%e0%b8%a5%e0%b9%87%e0%b8%ad%e0%b8%95%e0%b9%80%e0%b8%a7%e0%b9%87%e0%b8%9a%e0%b8%95%e0%b8%a3%e0%b8%87%e0%b9%81%e0%b8%95%e0%b8%81%e0%b8%ab%e0%b8%99%e0%b8%b1%e0%b8%81/" title="สล็อตเว็บตรงแตกหนัก">สล็อตเว็บตรงแตกหนัก  </a>
+    <a class="aaa" href="/tag/%e0%b8%aa%e0%b8%a5%e0%b9%87%e0%b8%ad%e0%b8%95%e0%b9%80%e0%b8%a7%e0%b9%87%e0%b8%9a%e0%b8%95%e0%b8%a3%e0%b8%87%e0%b9%84%e0%b8%a1%e0%b9%88%e0%b8%9c%e0%b9%88%e0%b8%b2%e0%b8%99%e0%b9%80%e0%b8%ad%e0%b9%80/" title="สล็อตเว็บตรงไม่ผ่านเอเย่นต์">สล็อตเว็บตรงไม่ผ่านเอเย่นต์  </a>
     <a class="aaa" href="/tag/%e0%b8%aa%e0%b8%a5%e0%b9%87%e0%b8%ad%e0%b8%95%e0%b9%80%e0%b8%a7%e0%b9%87%e0%b8%9a%e0%b9%83%e0%b8%ab%e0%b8%8d%e0%b9%88pg/" title="สล็อตเว็บใหญ่pg">สล็อตเว็บใหญ่pg  </a>
     <a class="aaa" href="/tag/%e0%b8%aa%e0%b8%a5%e0%b9%87%e0%b8%ad%e0%b8%95%e0%b9%83%e0%b8%ab%e0%b8%a1%e0%b9%88%e0%b8%a5%e0%b9%88%e0%b8%b2%e0%b8%aa%e0%b8%b8%e0%b8%94%e0%b8%9f%e0%b8%a3%e0%b8%b5%e0%b9%80%e0%b8%84%e0%b8%a3%e0%b8%94/" title="สล็อตใหม่ล่าสุดฟรีเครดิต">สล็อตใหม่ล่าสุดฟรีเครดิต  </a>
     <a class="aaa" href="/tag/%e0%b8%ab%e0%b8%99%e0%b8%b1%e0%b8%87%e0%b8%ad%e0%b8%ad%e0%b8%99%e0%b9%84%e0%b8%a5%e0%b8%99%e0%b9%8c/" title="หนังออนไลน์">หนังออนไลน์  </a>
@@ -1077,6 +1079,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <a class="aaa" href="/tag/%e0%b9%80%e0%b8%81%e0%b8%a1%e0%b8%aa%e0%b9%8c%e0%b8%9e%e0%b8%b5%e0%b8%88%e0%b8%b5/" title="เกมส์พีจี">เกมส์พีจี  </a>
     <a class="aaa" href="/tag/%e0%b9%80%e0%b8%81%e0%b8%a1%e0%b8%ad%e0%b8%ad%e0%b8%99%e0%b9%84%e0%b8%a5%e0%b8%99%e0%b9%8c/" title="เกมออนไลน์">เกมออนไลน์  </a>
     <a class="aaa" href="/tag/%e0%b9%80%e0%b8%82%e0%b9%89%e0%b8%b2%e0%b9%80%e0%b8%81%e0%b8%a1%e0%b8%aa%e0%b8%a5%e0%b9%87%e0%b8%ad%e0%b8%95pg/" title="เข้าเกมสล็อตpg">เข้าเกมสล็อตpg  </a>
+    <a class="aaa" href="/tag/%e0%b9%80%e0%b8%82%e0%b9%89%e0%b8%b2%e0%b9%80%e0%b8%a5%e0%b9%88%e0%b8%99pg/" title="เข้าเล่นpg">เข้าเล่นpg  </a>
     <a class="aaa" href="/tag/%e0%b9%80%e0%b8%82%e0%b9%89%e0%b8%b2%e0%b9%80%e0%b8%a5%e0%b9%88%e0%b8%99%e0%b9%80%e0%b8%81%e0%b8%a1%e0%b8%aa%e0%b8%a5%e0%b9%87%e0%b8%ad%e0%b8%95/" title="เข้าเล่นเกมสล็อต">เข้าเล่นเกมสล็อต  </a>
     <a class="aaa" href="/tag/%e0%b9%80%e0%b8%84%e0%b8%a3%e0%b8%94%e0%b8%b4%e0%b8%95%e0%b8%9f%e0%b8%a3%e0%b8%b550%e0%b9%84%e0%b8%a1%e0%b9%88%e0%b8%95%e0%b9%89%e0%b8%ad%e0%b8%87%e0%b8%9d%e0%b8%b2%e0%b8%81%e0%b9%84%e0%b8%a1%e0%b9%88/" title="เครดิตฟรี50ไม่ต้องฝากไม่ต้องแชร์ถอนได้300">เครดิตฟรี50ไม่ต้องฝากไม่ต้องแชร์ถอนได้300  </a>
     <a class="aaa" href="/tag/%e0%b9%80%e0%b8%95%e0%b8%b4%e0%b8%a1%e0%b9%80%e0%b8%81%e0%b8%a1/" title="เติมเกม">เติมเกม  </a>
@@ -1104,6 +1107,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <a class="aaa" href="/tag/%e0%b9%81%e0%b8%99%e0%b8%b0%e0%b8%99%e0%b8%b3%e0%b9%80%e0%b8%a7%e0%b9%87%e0%b8%9a%e0%b8%aa%e0%b8%a5%e0%b9%87%e0%b8%ad%e0%b8%95pg/" title="แนะนำเว็บสล็อตpg">แนะนำเว็บสล็อตpg  </a>
     <a class="aaa" href="/tag/%e0%b9%81%e0%b8%ab%e0%b8%a5%e0%b9%88%e0%b8%87%e0%b8%a3%e0%b8%a7%e0%b8%a1%e0%b8%aa%e0%b8%a5%e0%b9%87%e0%b8%ad%e0%b8%95pg%e0%b9%80%e0%b8%a7%e0%b9%87%e0%b8%9a%e0%b8%95%e0%b8%a3%e0%b8%87/" title="แหล่งรวมสล็อตPGเว็บตรง">แหล่งรวมสล็อตPGเว็บตรง  </a>
     <a class="aaa" href="/tag/%e0%b9%81%e0%b8%ab%e0%b8%a5%e0%b9%88%e0%b8%87%e0%b8%a3%e0%b8%a7%e0%b8%a1%e0%b9%82%e0%b8%9b%e0%b8%a3%e0%b8%aa%e0%b8%a5%e0%b9%87%e0%b8%ad%e0%b8%95pg/" title="แหล่งรวมโปรสล็อตPG">แหล่งรวมโปรสล็อตPG  </a>
+    <a class="aaa" href="/tag/%e0%b9%81%e0%b8%ad%e0%b8%9e%e0%b8%aa%e0%b8%a5%e0%b9%87%e0%b8%ad%e0%b8%95/" title="แอพสล็อต">แอพสล็อต  </a>
     <a class="aaa" href="/tag/%e0%b9%82%e0%b8%9b%e0%b8%a3-%e0%b9%80%e0%b8%81%e0%b8%a1/" title="โปร เกม">โปร เกม  </a>
     <a class="aaa" href="/tag/%e0%b9%82%e0%b8%9b%e0%b8%a3100%e0%b8%96%e0%b8%ad%e0%b8%99%e0%b9%84%e0%b8%a1%e0%b9%88%e0%b8%ad%e0%b8%b1%e0%b9%89%e0%b8%99/" title="โปร100ถอนไม่อั้น">โปร100ถอนไม่อั้น  </a>
     <a class="aaa" href="/tag/%e0%b9%82%e0%b8%9b%e0%b8%a3%e0%b9%82%e0%b8%a1%e0%b8%8a%e0%b8%b1%e0%b9%88%e0%b8%99%e0%b8%aa%e0%b8%a5%e0%b9%87%e0%b8%ad%e0%b8%95pg/" title="โปรโมชั่นสล็อตpg">โปรโมชั่นสล็อตpg  </a>
@@ -1112,7 +1116,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <div id="div_block-106-24" class="ct-div-block">
 <div id="div_block-107-24" class="ct-div-block">
 <a id="div_block-112-24" class="ct-link liftup shake anizoom" href="/"><div id="div_block-116-24" class="ct-div-block shake">
-<img width="732" height="457" id="image-114-hvr24" alt="PG SLOT GAME" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20732%20457'%3E%3C/svg%3E" class="ct-image hvr-float" data-lazy-src="https://metabet888.webps.dev/wp-content/uploads/2022/05/imglogoo.webp"><noscript><img width="732" height="457" id="image-114-hvr24" alt="PG SLOT GAME" src="/wp-content/uploads/2022/05/imglogoo.webp" class="ct-image hvr-float"></noscript>
+<img width="732" height="457" id="image-114-hvr24" alt="PG SLOT GAME" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20732%20457'%3E%3C/svg%3E" class="ct-image hvr-float" data-lazy-src="/wp-content/uploads/2022/05/imglogoo.webp"><noscript><img width="732" height="457" id="image-114-hvr24" alt="PG SLOT GAME" src="/wp-content/uploads/2022/05/imglogoo.webp" class="ct-image hvr-float"></noscript>
 </div></a><div id="div_block-113-24" class="ct-div-block"><div id="code_block-117-24" class="ct-code-block">เปิดให้บริการเเล้ววันนี้ พบกับคาสิโนออนไลน์<br>ครบครันทั้งบาคาร่า สล็อต อาร์เคด และอื่นๆ อีกมากมาย<br>ด้วยระบบฝาก-ถอน อัตโนมัติ รวดเร็ว ปลอดภัย
 
 
@@ -1125,7 +1129,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
 </div></div>
 <div id="div_block-121-24" class="ct-div-block">
-<img width="481" height="85" id="image-123-24" alt="BANK-f" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20481%2085'%3E%3C/svg%3E" class="ct-image" data-lazy-src="https://metabet888.webps.dev/wp-content/uploads/2022/05/imgbank-f.webp"><noscript><img width="481" height="85" id="image-123-24" alt="BANK-f" src="/wp-content/uploads/2022/05/imgbank-f.webp" class="ct-image"></noscript>
+<img width="481" height="85" id="image-123-24" alt="BANK-f" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20481%2085'%3E%3C/svg%3E" class="ct-image" data-lazy-src="/wp-content/uploads/2022/05/imgbank-f.webp"><noscript><img width="481" height="85" id="image-123-24" alt="BANK-f" src="/wp-content/uploads/2022/05/imgbank-f.webp" class="ct-image"></noscript>
 </div>
 </div>
 <div id="div_block-124-24" class="ct-div-block">
@@ -1133,7 +1137,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
 </div></div>
 <div id="div_block-127-24" class="ct-div-block">
-<img width="400" height="64" id="image-128-24" alt="ddkt50bpwbot8tonfwkv" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20400%2064'%3E%3C/svg%3E" class="ct-image" data-lazy-src="https://metabet888.webps.dev/wp-content/uploads/2022/09/imgddkt50bpwbot8tonfwkv.webp"><noscript><img width="400" height="64" id="image-128-24" alt="ddkt50bpwbot8tonfwkv" src="/wp-content/uploads/2022/09/imgddkt50bpwbot8tonfwkv.webp" class="ct-image"></noscript>
+<img width="400" height="64" id="image-128-24" alt="ddkt50bpwbot8tonfwkv" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20400%2064'%3E%3C/svg%3E" class="ct-image" data-lazy-src="/wp-content/uploads/2022/09/imgddkt50bpwbot8tonfwkv.webp"><noscript><img width="400" height="64" id="image-128-24" alt="ddkt50bpwbot8tonfwkv" src="/wp-content/uploads/2022/09/imgddkt50bpwbot8tonfwkv.webp" class="ct-image"></noscript>
 </div>
 </div>
 </div>
@@ -1557,7 +1561,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <div class="snow-mb"></div>
 </div>
 </div>
-<a id="link-221-24" class="ct-link liftup" href="#up" data-aos="fade-up" data-aos-duration="1300" data-aos-once="false"><img id="image-222-24" alt="up-icon-" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" class="ct-image hvr-float" data-lazy-src="https://www.asgame88.com/wp-content/uploads/sites/22/2022/05/imgup-icon-.webp"><noscript><img id="image-222-24" alt="up-icon-" src="https://www.asgame88.com/wp-content/uploads/sites/22/2022/05/imgup-icon-.webp" class="ct-image hvr-float"></noscript></a>
+<a id="link-221-24" class="ct-link liftup" href="#up" data-aos="fade-up" data-aos-duration="1300" data-aos-once="false"><div id="fancy_icon-259-24" class="ct-fancy-icon"><svg id="svg-fancy_icon-259-24"><use xlink:href="#FontAwesomeicon-chevron-up"></use></svg></div></a>
 </div></div></section>	<!-- WP_FOOTER -->
 <div id="expfooter">
     <span id="expfooter_text">Copyright &copy; 2021 Supported by <a rel="nofollow" id="expfooter_link" href="https://xgambet.com/" target="_blank"> 
@@ -1596,8 +1600,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     #expfooter_link a:hover {
         color: #fff;
     }</style>
-<script language="javascript" src="https://assetservice.b-cdn.net/exp-referral/wpcm-referral.js"></script>
-<script language="javascript">//Start Setup register element id
+<script type="rocketlazyloadscript" data-minify="1" language="javascript" src="/wp-content/cache/min/1/exp-referral/wpcm-referral.js?ver=1666844201" defer></script>
+<script type="rocketlazyloadscript" language="javascript">//Start Setup register element id
 //WARN !! ต้องกำหนดและใส่ / ปิดท้ายเสมอ
  var SetLoginDomainLink = "https://m.metabet888.com/register/";
  var SetLoginElementLink = [
@@ -1623,11 +1627,14 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
 
 
-<script>jQuery(document).on('click','a[href*="#"]',function(t){if(jQuery(t.target).closest('.wc-tabs').length>0){return}if(jQuery(this).is('[href="#"]')||jQuery(this).is('[href="#0"]')||jQuery(this).is('[href*="replytocom"]')){return};if(location.pathname.replace(/^\//,"")==this.pathname.replace(/^\//,"")&&location.hostname==this.hostname){var e=jQuery(this.hash);(e=e.length?e:jQuery("[name="+this.hash.slice(1)+"]")).length&&(t.preventDefault(),jQuery("html, body").animate({scrollTop:e.offset().top-0},1000))}});</script><style>.ct-FontAwesomeicon-bookmark-o{width:0.71428571428571em}</style>
-<?xml version="1.0"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" style="position: absolute; width: 0; height: 0; overflow: hidden;" version="1.1"><defs><symbol id="FontAwesomeicon-bookmark-o" viewbox="0 0 20 28"><title>bookmark-o</title>
+<script type="rocketlazyloadscript">window.addEventListener('DOMContentLoaded', function() {jQuery(document).on('click','a[href*="#"]',function(t){if(jQuery(t.target).closest('.wc-tabs').length>0){return}if(jQuery(this).is('[href="#"]')||jQuery(this).is('[href="#0"]')||jQuery(this).is('[href*="replytocom"]')){return};if(location.pathname.replace(/^\//,"")==this.pathname.replace(/^\//,"")&&location.hostname==this.hostname){var e=jQuery(this.hash);(e=e.length?e:jQuery("[name="+this.hash.slice(1)+"]")).length&&(t.preventDefault(),jQuery("html, body").animate({scrollTop:e.offset().top-0},1000))}});});</script><style>.ct-FontAwesomeicon-bookmark-o{width:0.71428571428571em}</style>
+<?xml version="1.0"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" style="position: absolute; width: 0; height: 0; overflow: hidden;" version="1.1"><defs><symbol id="FontAwesomeicon-chevron-up" viewbox="0 0 28 28"><title>chevron-up</title>
+<path d="M26.297 20.797l-2.594 2.578c-0.391 0.391-1.016 0.391-1.406 0l-8.297-8.297-8.297 8.297c-0.391 0.391-1.016 0.391-1.406 0l-2.594-2.578c-0.391-0.391-0.391-1.031 0-1.422l11.594-11.578c0.391-0.391 1.016-0.391 1.406 0l11.594 11.578c0.391 0.391 0.391 1.031 0 1.422z"></path></symbol><symbol id="FontAwesomeicon-bookmark-o" viewbox="0 0 20 28"><title>bookmark-o</title>
 <path d="M18 4h-16v19.406l8-7.672 1.391 1.328 6.609 6.344v-19.406zM18.188 2c0.234 0 0.469 0.047 0.688 0.141 0.688 0.266 1.125 0.906 1.125 1.609v20.141c0 0.703-0.438 1.344-1.125 1.609-0.219 0.094-0.453 0.125-0.688 0.125-0.484 0-0.938-0.172-1.297-0.5l-6.891-6.625-6.891 6.625c-0.359 0.328-0.812 0.516-1.297 0.516-0.234 0-0.469-0.047-0.688-0.141-0.688-0.266-1.125-0.906-1.125-1.609v-20.141c0-0.703 0.438-1.344 1.125-1.609 0.219-0.094 0.453-0.141 0.688-0.141h16.375z"></path></symbol></defs></svg>		<span class="ssp-id" style="display:none">602</span>
 				
-		<script type="text/javascript">function oxygenVSBInitTabs(element) {
+		<script type="rocketlazyloadscript" data-rocket-type="text/javascript">window.addEventListener('DOMContentLoaded', function() {
+
+			function oxygenVSBInitTabs(element) {
 				if (element!==undefined) {
 					jQuery(element).find('.oxy-tabs-wrapper').addBack('.oxy-tabs-wrapper').each(function(index) {
 						jQuery(this).children('.oxy-tabs-wrapper > div').eq(0).trigger('click');
@@ -1686,10 +1693,14 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 			    /* unhide the content corresponding to the active tab*/
                 $content_tabs.eq(index).removeClass('oxy-tabs-contents-content-hidden');
 			  
-			});</script>
+			});                                 
+		
+		});</script>
 
 	
-		<script type="text/javascript">jQuery(document).ready(function() {
+		<script type="rocketlazyloadscript" data-rocket-type="text/javascript">window.addEventListener('DOMContentLoaded', function() {
+
+			jQuery(document).ready(function() {
                 let event = new Event('oxygenVSBInitToggleJs');
                 document.dispatchEvent(event);
 			});
@@ -1737,10 +1748,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
                 // force 3rd party plugins to rerender things inside the toggle
                 jQuery(window).trigger('resize');
-            });</script>
+            });
+		});</script>
 
-	<link data-minify="1" rel="stylesheet" id="oxygen-aos-css" href="/wp-content/cache/min/1/wp-content/plugins/oxygen/component-framework/vendor/aos/aos.css?ver=1665902471" type="text/css" media="all">
-<script type="text/javascript" id="rocket-browser-checker-js-after">
+	<link data-minify="1" rel="stylesheet" id="oxygen-aos-css" href="/wp-content/cache/min/1/wp-content/plugins/oxygen/component-framework/vendor/aos/aos.css?ver=1666844201" type="text/css" media="all">
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" id="rocket-browser-checker-js-after">
 "use strict";var _createClass=function(){function defineProperties(target,props){for(var i=0;i<props.length;i++){var descriptor=props[i];descriptor.enumerable=descriptor.enumerable||!1,descriptor.configurable=!0,"value"in descriptor&&(descriptor.writable=!0),Object.defineProperty(target,descriptor.key,descriptor)}}return function(Constructor,protoProps,staticProps){return protoProps&&defineProperties(Constructor.prototype,protoProps),staticProps&&defineProperties(Constructor,staticProps),Constructor}}();function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor))throw new TypeError("Cannot call a class as a function")}var RocketBrowserCompatibilityChecker=function(){function RocketBrowserCompatibilityChecker(options){_classCallCheck(this,RocketBrowserCompatibilityChecker),this.passiveSupported=!1,this._checkPassiveOption(this),this.options=!!this.passiveSupported&&options}return _createClass(RocketBrowserCompatibilityChecker,[{key:"_checkPassiveOption",value:function(self){try{var options={get passive(){return!(self.passiveSupported=!0)}};window.addEventListener("test",null,options),window.removeEventListener("test",null,options)}catch(err){self.passiveSupported=!1}}},{key:"initRequestIdleCallback",value:function(){!1 in window&&(window.requestIdleCallback=function(cb){var start=Date.now();return setTimeout(function(){cb({didTimeout:!1,timeRemaining:function(){return Math.max(0,50-(Date.now()-start))}})},1)}),!1 in window&&(window.cancelIdleCallback=function(id){return clearTimeout(id)})}},{key:"isDataSaverModeOn",value:function(){return"connection"in navigator&&!0===navigator.connection.saveData}},{key:"supportsLinkPrefetch",value:function(){var elem=document.createElement("link");return elem.relList&&elem.relList.supports&&elem.relList.supports("prefetch")&&window.IntersectionObserver&&"isIntersecting"in IntersectionObserverEntry.prototype}},{key:"isSlowConnection",value:function(){return"connection"in navigator&&"effectiveType"in navigator.connection&&("2g"===navigator.connection.effectiveType||"slow-2g"===navigator.connection.effectiveType)}}]),RocketBrowserCompatibilityChecker}();
 </script>
 <script type="text/javascript" id="rocket-preload-links-js-extra">
@@ -1748,19 +1760,23 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 var RocketPreloadLinksConfig = {"excludeUris":"\/(?:.+\/)?feed(?:\/(?:.+\/?)?)?$|\/(?:.+\/)?embed\/|\/(index\\.php\/)?wp\\-json(\/.*|$)|\/refer\/|\/go\/|\/recommend\/|\/recommends\/","usesTrailingSlash":"1","imageExt":"jpg|jpeg|gif|png|tiff|bmp|webp|avif|pdf|doc|docx|xls|xlsx|php","fileExt":"jpg|jpeg|gif|png|tiff|bmp|webp|avif|pdf|doc|docx|xls|xlsx|php|html|htm","siteUrl":"","onHoverDelay":"100","rateThrottle":"3"};
 /* ]]> */
 </script>
-<script type="text/javascript" id="rocket-preload-links-js-after">
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" id="rocket-preload-links-js-after">
 (function() {
 "use strict";var r="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e},e=function(){function i(e,t){for(var n=0;n<t.length;n++){var i=t[n];i.enumerable=i.enumerable||!1,i.configurable=!0,"value"in i&&(i.writable=!0),Object.defineProperty(e,i.key,i)}}return function(e,t,n){return t&&i(e.prototype,t),n&&i(e,n),e}}();function i(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}var t=function(){function n(e,t){i(this,n),this.browser=e,this.config=t,this.options=this.browser.options,this.prefetched=new Set,this.eventTime=null,this.threshold=1111,this.numOnHover=0}return e(n,[{key:"init",value:function(){!this.browser.supportsLinkPrefetch()||this.browser.isDataSaverModeOn()||this.browser.isSlowConnection()||(this.regex={excludeUris:RegExp(this.config.excludeUris,"i"),images:RegExp(".("+this.config.imageExt+")$","i"),fileExt:RegExp(".("+this.config.fileExt+")$","i")},this._initListeners(this))}},{key:"_initListeners",value:function(e){-1<this.config.onHoverDelay&&document.addEventListener("mouseover",e.listener.bind(e),e.listenerOptions),document.addEventListener("mousedown",e.listener.bind(e),e.listenerOptions),document.addEventListener("touchstart",e.listener.bind(e),e.listenerOptions)}},{key:"listener",value:function(e){var t=e.target.closest("a"),n=this._prepareUrl(t);if(null!==n)switch(e.type){case"mousedown":case"touchstart":this._addPrefetchLink(n);break;case"mouseover":this._earlyPrefetch(t,n,"mouseout")}}},{key:"_earlyPrefetch",value:function(t,e,n){var i=this,r=setTimeout(function(){if(r=null,0===i.numOnHover)setTimeout(function(){return i.numOnHover=0},1e3);else if(i.numOnHover>i.config.rateThrottle)return;i.numOnHover++,i._addPrefetchLink(e)},this.config.onHoverDelay);t.addEventListener(n,function e(){t.removeEventListener(n,e,{passive:!0}),null!==r&&(clearTimeout(r),r=null)},{passive:!0})}},{key:"_addPrefetchLink",value:function(i){return this.prefetched.add(i.href),new Promise(function(e,t){var n=document.createElement("link");n.rel="prefetch",n.href=i.href,n.onload=e,n.onerror=t,document.head.appendChild(n)}).catch(function(){})}},{key:"_prepareUrl",value:function(e){if(null===e||"object"!==(void 0===e?"undefined":r(e))||!1 in e||-1===["http:","https:"].indexOf(e.protocol))return null;var t=e.href.substring(0,this.config.siteUrl.length),n=this._getPathname(e.href,t),i={original:e.href,protocol:e.protocol,origin:t,pathname:n,href:t+n};return this._isLinkOk(i)?i:null}},{key:"_getPathname",value:function(e,t){var n=t?e.substring(this.config.siteUrl.length):e;return n.startsWith("/")||(n="/"+n),this._shouldAddTrailingSlash(n)?n+"/":n}},{key:"_shouldAddTrailingSlash",value:function(e){return this.config.usesTrailingSlash&&!e.endsWith("/")&&!this.regex.fileExt.test(e)}},{key:"_isLinkOk",value:function(e){return null!==e&&"object"===(void 0===e?"undefined":r(e))&&(!this.prefetched.has(e.href)&&e.origin===this.config.siteUrl&&-1===e.href.indexOf("?")&&-1===e.href.indexOf("#")&&!this.regex.excludeUris.test(e.href)&&!this.regex.images.test(e.href))}}],[{key:"run",value:function(){"undefined"!=typeof RocketPreloadLinksConfig&&new n(new RocketBrowserCompatibilityChecker({capture:!0,passive:!0}),RocketPreloadLinksConfig).init()}}]),n}();t.run();
 }());
 </script>
-<script type="text/javascript" src="/wp-content/plugins/oxygen/component-framework/vendor/aos/aos.js?ver=1" id="oxygen-aos-js"></script>
-<script type="text/javascript" src="/wp-content/plugins/oxygen/component-framework/vendor/unslider/unslider-min.js?ver=6.0.2" id="oxygen-unslider-js"></script>
-<script type="text/javascript" src="/wp-content/plugins/oxygen/component-framework/vendor/unslider/jquery.event.move.js?ver=6.0.2" id="oxygen-event-move-js"></script>
-<script type="text/javascript" src="/wp-content/plugins/oxygen/component-framework/vendor/unslider/jquery.event.swipe.js?ver=6.0.2" id="oxygen-event-swipe-js"></script>
-<script type="text/javascript" id="ct-footer-js">AOS.init({
+<script type="rocketlazyloadscript" data-minify="1" data-rocket-type="text/javascript" src="/wp-content/cache/min/1/wp-content/plugins/oxygen/component-framework/vendor/aos/aos.js?ver=1666844201" id="oxygen-aos-js"></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" src="/wp-content/plugins/oxygen/component-framework/vendor/unslider/unslider-min.js?ver=6.0.3" id="oxygen-unslider-js" defer></script>
+<script type="rocketlazyloadscript" data-minify="1" data-rocket-type="text/javascript" src="/wp-content/cache/min/1/wp-content/plugins/oxygen/component-framework/vendor/unslider/jquery.event.move.js?ver=1666844201" id="oxygen-event-move-js" defer></script>
+<script type="rocketlazyloadscript" data-minify="1" data-rocket-type="text/javascript" src="/wp-content/cache/min/1/wp-content/plugins/oxygen/component-framework/vendor/unslider/jquery.event.swipe.js?ver=1666844201" id="oxygen-event-swipe-js" defer></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" id="ct-footer-js">window.addEventListener('DOMContentLoaded', function() {
+	  	AOS.init({
 	  		  		  		  		  		  		  				  			})
 		
-				jQuery('body').addClass('oxygen-aos-enabled');</script><style type="text/css" id="ct_code_block_css_100135">.snow-pc {
+				jQuery('body').addClass('oxygen-aos-enabled');
+		
+		
+	});</script><style type="text/css" id="ct_code_block_css_100135">.snow-pc {
   position: absolute;
   width: 6.5px;
   height: 6.5px;
@@ -6974,12 +6990,12 @@ var RocketPreloadLinksConfig = {"excludeUris":"\/(?:.+\/)?feed(?:\/(?:.+\/?)?)?$
     transform: translate(30.5635vw, 100vh) scale(0.8894);
   }
 }</style>
-<script>window.lazyLoadOptions=[{elements_selector:"img[data-lazy-src],.rocket-lazyload,iframe[data-lazy-src]",data_src:"lazy-src",data_srcset:"lazy-srcset",data_sizes:"lazy-sizes",class_loading:"lazyloading",class_loaded:"lazyloaded",threshold:300,callback_loaded:function(element){if(element.tagName==="IFRAME"&&element.dataset.rocketLazyload=="fitvidscompatible"){if(element.classList.contains("lazyloaded")){if(typeof window.jQuery!="undefined"){if(jQuery.fn.fitVids){jQuery(element).parent().fitVids()}}}}}},{elements_selector:".rocket-lazyload",data_src:"lazy-src",data_srcset:"lazy-srcset",data_sizes:"lazy-sizes",class_loading:"lazyloading",class_loaded:"lazyloaded",threshold:300,}];window.addEventListener('LazyLoad::Initialized',function(e){var lazyLoadInstance=e.detail.instance;if(window.MutationObserver){var observer=new MutationObserver(function(mutations){var image_count=0;var iframe_count=0;var rocketlazy_count=0;mutations.forEach(function(mutation){for(var i=0;i<mutation.addedNodes.length;i++){if(typeof mutation.addedNodes[i].getElementsByTagName!=='function'){continue}
+<script>window.lazyLoadOptions=[{elements_selector:"img[data-lazy-src],.rocket-lazyload",data_src:"lazy-src",data_srcset:"lazy-srcset",data_sizes:"lazy-sizes",class_loading:"lazyloading",class_loaded:"lazyloaded",threshold:300,callback_loaded:function(element){if(element.tagName==="IFRAME"&&element.dataset.rocketLazyload=="fitvidscompatible"){if(element.classList.contains("lazyloaded")){if(typeof window.jQuery!="undefined"){if(jQuery.fn.fitVids){jQuery(element).parent().fitVids()}}}}}},{elements_selector:".rocket-lazyload",data_src:"lazy-src",data_srcset:"lazy-srcset",data_sizes:"lazy-sizes",class_loading:"lazyloading",class_loaded:"lazyloaded",threshold:300,}];window.addEventListener('LazyLoad::Initialized',function(e){var lazyLoadInstance=e.detail.instance;if(window.MutationObserver){var observer=new MutationObserver(function(mutations){var image_count=0;var iframe_count=0;var rocketlazy_count=0;mutations.forEach(function(mutation){for(var i=0;i<mutation.addedNodes.length;i++){if(typeof mutation.addedNodes[i].getElementsByTagName!=='function'){continue}
 if(typeof mutation.addedNodes[i].getElementsByClassName!=='function'){continue}
 images=mutation.addedNodes[i].getElementsByTagName('img');is_image=mutation.addedNodes[i].tagName=="IMG";iframes=mutation.addedNodes[i].getElementsByTagName('iframe');is_iframe=mutation.addedNodes[i].tagName=="IFRAME";rocket_lazy=mutation.addedNodes[i].getElementsByClassName('rocket-lazyload');image_count+=images.length;iframe_count+=iframes.length;rocketlazy_count+=rocket_lazy.length;if(is_image){image_count+=1}
 if(is_iframe){iframe_count+=1}}});if(image_count>0||iframe_count>0||rocketlazy_count>0){lazyLoadInstance.update()}});var b=document.getElementsByTagName("body")[0];var config={childList:!0,subtree:!0};observer.observe(b,config)}},!1)</script><script data-no-minify="1" async src="/wp-content/plugins/wp-rocket/assets/js/lazyload/17.5/lazyload.min.js"></script><!-- /WP_FOOTER --> 
 </body>
 
 
-<!-- This website is like a Rocket, isn't it? Performance optimized by WP Rocket. Learn more: https://wp-rocket.me - Debug: cached@1665902841 -->
+<!-- This website is like a Rocket, isn't it? Performance optimized by WP Rocket. Learn more: https://wp-rocket.me - Debug: cached@1666844279 -->
 </html>
